@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>GET - Webserv</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background-color: #000;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 200%;
+      max-width: 500px;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input[type="text"] {
+      background-color: #222;
+      border: 1px solid #555;
+      border-radius: 5px;
+      color: #eee;
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]::placeholder {
+      color: #888;
+    }
+
+    button {
+      background-color: #444;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      padding: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>GET a file</h1>
+  <form id="getForm">
+    <label for="filename">File to get :</label>
+    <input type="text" id="filename" name="filename" placeholder="Enter path or location config and name of file" required />
+    <button type="submit">Get</button>
+  </form>
+
+  <script>
+    document.getElementById('getForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const filename = document.getElementById('filename').value.trim();
+      if (!filename) {
+        alert('Please type the file name');
+        return;
+      }
+      window.location.href = '/' + encodeURIComponent(filename);
+    });
+  </script>
+</body>
+</html>

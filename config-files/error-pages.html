@@ -1,0 +1,30 @@
+server {
+	host		127.0.0.1;
+	listen		8080;
+	error_page 404	../www/error-pages/404.html;
+
+	location / {
+		root		../www;
+		index index.html;
+		methods GET;
+	}
+	
+	location /upload/ {
+		root		../www;
+		upload_filename_header X-Upload-Filename;
+		methods POST;
+	}
+
+	location /cgi/ {
+		root			../www;
+		cgi_extension	.php;
+		cgi_path		/usr/local/bin/php-cgi;
+		methods			GET;
+	}
+
+	location /music {
+		root			../www;
+		methods			GET;
+		return 			301 /Fame.mp3;
+	}
+}

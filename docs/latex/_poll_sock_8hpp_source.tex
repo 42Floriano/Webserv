@@ -1,0 +1,64 @@
+\doxysection{Poll\+Sock.\+hpp}
+\hypertarget{_poll_sock_8hpp_source}{}\label{_poll_sock_8hpp_source}\index{PollSock/PollSock.hpp@{PollSock/PollSock.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POLLSOCK\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ POLLSOCK\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Definition\ of\ the\ PollSock\ class.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ }}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ It\ implements\ both\ the\ PollCallback\ and\ Socket\ interface}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ by\ inheriting\ from\ both.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#\ include\ "{}Console.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#\ include\ "{}SimpleSet.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#\ include\ "{}PollSet.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#\ include\ "{}Socket.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#\ include\ "{}PollCallback.hpp"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }PollSock:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_poll_callback}{PollCallback}},\ \textcolor{keyword}{public}\ Socket\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:\ \ \ \ \ \textcolor{comment}{//\ constructors}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ PollSock(\mbox{\hyperlink{class_poll_set}{PollSet}}\ \&pset,\ \textcolor{keywordtype}{int}\ domain,\ \textcolor{keywordtype}{int}\ type,\ \textcolor{keywordtype}{int}\ protocol);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ PollSock(\mbox{\hyperlink{class_poll_set}{PollSet}}\ \&pset,\ \textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_address}{Address}}\ *addr);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:\ \ \ \ \ \textcolor{comment}{//\ orthodox}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ registerClient(PollSock\ *client);}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ \ \ \ PollSock(void);}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ \ \ \ \ PollSock(const\ PollSock\ \&other);}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ \ \ \ \ PollSock\ \&operator=(const\ PollSock\ \&rhs);}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ \ \ \ \string~PollSock(void);}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{protected}:\ \ \textcolor{comment}{//\ private\ fields}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_poll_set}{PollSet}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\_pset;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_reserved\_fd;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{protected}:\ \ \textcolor{comment}{//\ PollCallback\ overloads}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_onPOLLIN(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_onPOLLOUT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_onPOLLERR(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_onPOLLHUP(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_get\_underlying\_fd(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//Socket\ overloads}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listen(\textcolor{keywordtype}{int}\ backlog\ =\ 4096);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listen(\textcolor{keyword}{const}\ std::string\ \&host,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&port,\ \textcolor{keywordtype}{int}\ backlog\ =\ 4096);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{protected}:\ \ \textcolor{comment}{//\ Customizable\ methods;}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ onConnection(\textcolor{keywordtype}{int}\ clientfd,\ \mbox{\hyperlink{class_address}{Address}}\ *clientaddr);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ onDisconnect(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ onError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ onData(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ onWritable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fd()\ \{\textcolor{keywordflow}{return}\ this-\/>\_get\_underlying\_fd();\};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

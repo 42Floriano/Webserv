@@ -1,0 +1,30 @@
+\doxysection{Context.\+hpp}
+\hypertarget{_context_8hpp_source}{}\label{_context_8hpp_source}\index{ServerConfig/NewParser/Context.hpp@{ServerConfig/NewParser/Context.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONTEXT\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONTEXT\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Directive.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Config.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_config}{Config}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_context}{Context}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_directive}{Directive}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ Config\ \_config;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Context();}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Context(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::string\&\ arg,\ \textcolor{keyword}{const}\ Config\&\ config\ =\ Config());}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Context(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ args,\ \textcolor{keyword}{const}\ Config\&\ config\ =\ Config());}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Context(\textcolor{keyword}{const}\ Context\&\ other);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Context\&\ operator=(\textcolor{keyword}{const}\ Context\&\ rhs);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Context();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Config\&\ config()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Config\&\ config();}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

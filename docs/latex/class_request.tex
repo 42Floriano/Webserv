@@ -1,0 +1,91 @@
+\doxysection{Request Class Reference}
+\hypertarget{class_request}{}\label{class_request}\index{Request@{Request}}
+Inheritance diagram for Request\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_request}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_request_ad81fc0912af12ea24e4ec519d4801a99}\label{class_request_ad81fc0912af12ea24e4ec519d4801a99} 
+const std\+::string \& {\bfseries method} (void) const
+\item 
+\Hypertarget{class_request_ae277f7ca2db09b85f9c539a407fa73fa}\label{class_request_ae277f7ca2db09b85f9c539a407fa73fa} 
+const std\+::string \& {\bfseries path} (void) const
+\item 
+\Hypertarget{class_request_a20cd498a051e4bcb912af7d0e00de1b3}\label{class_request_a20cd498a051e4bcb912af7d0e00de1b3} 
+const std\+::string \& {\bfseries request\+\_\+version} (void) const
+\item 
+\Hypertarget{class_request_a40743b4360007b0f651124eaae10be52}\label{class_request_a40743b4360007b0f651124eaae10be52} 
+const std\+::string {\bfseries query\+String} (void) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries decode} (void)
+\item 
+void {\bfseries encode\+\_\+first\+\_\+line} (void)
+\item 
+void {\bfseries encode\+\_\+headers} (void)
+\item 
+void {\bfseries encode} (void)
+\item 
+bool {\bfseries getline} (void)
+\item 
+bool {\bfseries getchunk} (void)
+\item 
+void {\bfseries parse\+\_\+chunk\+\_\+size} (void)
+\item 
+bool {\bfseries parse} (void)
+\item 
+void {\bfseries parse\+\_\+first\+\_\+line} (void)
+\item 
+void {\bfseries parse\+\_\+headers} (void)
+\item 
+void {\bfseries parse\+\_\+trailers} (void)
+\item 
+int {\bfseries phase} (void) const
+\item 
+void {\bfseries set\+Phase} (int n)
+\item 
+const std\+::map$<$ std\+::string, std\+::string $>$ \& {\bfseries headers} (void) const
+\item 
+const std\+::string \& {\bfseries header} (const std\+::string \&key) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_message_ae480a953f4aa7bdee0c3a919383a1384}\label{class_http_message_ae480a953f4aa7bdee0c3a919383a1384} 
+enum \{ \newline
+{\bfseries reading\+\_\+first\+\_\+line}
+, {\bfseries reading\+\_\+header}
+, {\bfseries reading\+\_\+body}
+, {\bfseries reading\+\_\+chunk\+\_\+size}
+, \newline
+{\bfseries reading\+\_\+chunk\+\_\+data}
+, {\bfseries reading\+\_\+trailers}
+, {\bfseries done}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries \+\_\+first\+\_\+line} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+headers}
+\item 
+std\+::stringstream {\bfseries \+\_\+body}
+\item 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+trailers}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Request/Request.\+hpp\item 
+Request/constructors/constructors.\+cpp\item 
+Request/getters/get\+Query.\+cpp\item 
+Request/getters/getters.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\doxysection{Socket\+\_\+storage Class Reference}
+\hypertarget{class_socket__storage}{}\label{class_socket__storage}\index{Socket\_storage@{Socket\_storage}}
+Inheritance diagram for Socket\+\_\+storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=8.000000cm]{class_socket__storage}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_socket__storage_a6d164a909a04671c242af51c89cccca5}\label{class_socket__storage_a6d164a909a04671c242af51c89cccca5} 
+int {\bfseries state} () const
+\item 
+\Hypertarget{class_socket__storage_ad560dd124087c536783636ce705306fb}\label{class_socket__storage_ad560dd124087c536783636ce705306fb} 
+int {\bfseries fd} () const
+\item 
+\Hypertarget{class_socket__storage_afa933c23abf6cfd8c905cadc9aac45c2}\label{class_socket__storage_afa933c23abf6cfd8c905cadc9aac45c2} 
+int {\bfseries domain} () const
+\item 
+\Hypertarget{class_socket__storage_a8ea84e4f718a2a687cae2ecbe52bc635}\label{class_socket__storage_a8ea84e4f718a2a687cae2ecbe52bc635} 
+int {\bfseries protocol} () const
+\item 
+\Hypertarget{class_socket__storage_a7ab79c07fb849713dd0f81f0f813c97c}\label{class_socket__storage_a7ab79c07fb849713dd0f81f0f813c97c} 
+int {\bfseries type} () const
+\item 
+\Hypertarget{class_socket__storage_a242f0f772bc4abb0f9d009dd2d91f6b9}\label{class_socket__storage_a242f0f772bc4abb0f9d009dd2d91f6b9} 
+int {\bfseries flags} (char c) const
+\item 
+\Hypertarget{class_socket__storage_adeb3dedb2b8e7d44db79aff5acc97571}\label{class_socket__storage_adeb3dedb2b8e7d44db79aff5acc97571} 
+bool {\bfseries query\+\_\+flag} (char c, int flag) const
+\item 
+\Hypertarget{class_socket__storage_ae6f2b9c851e40fd3a4f8e861c6b0b1e5}\label{class_socket__storage_ae6f2b9c851e40fd3a4f8e861c6b0b1e5} 
+const \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*} {\bfseries address} () const
+\item 
+\Hypertarget{class_socket__storage_a370a7ff2af59cbe22c023fe8af1a1c00}\label{class_socket__storage_a370a7ff2af59cbe22c023fe8af1a1c00} 
+const \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*} {\bfseries remote\+Address} () const
+\item 
+\Hypertarget{class_socket__storage_ab9cc92f8209b521e60d457d0067dfa3c}\label{class_socket__storage_ab9cc92f8209b521e60d457d0067dfa3c} 
+void {\bfseries init} (void)
+\item 
+\Hypertarget{class_socket__storage_ab16e4b753ac6aadb1e6a7c58dd969dad}\label{class_socket__storage_ab16e4b753ac6aadb1e6a7c58dd969dad} 
+void {\bfseries configure} (int domain, int type, int protocol)
+\item 
+\Hypertarget{class_socket__storage_af3e9f161ffec4d0d5a880ac92f9880e3}\label{class_socket__storage_af3e9f161ffec4d0d5a880ac92f9880e3} 
+void {\bfseries configure} (int fd, \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{class_socket__storage_ad1b0d12b05e78852dc8228fae568aded}\label{class_socket__storage_ad1b0d12b05e78852dc8228fae568aded} 
+void {\bfseries set\+Address} (\mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{class_socket__storage_a2094004051ca2d3dde5d66572e0f6ba0}\label{class_socket__storage_a2094004051ca2d3dde5d66572e0f6ba0} 
+void {\bfseries set\+Remote\+Address} (\mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\Hypertarget{class_socket__storage_a8d5687a33d36ba83eafc7691ab49c183}\label{class_socket__storage_a8d5687a33d36ba83eafc7691ab49c183} 
+void {\bfseries state} (int new\+\_\+state)
+\item 
+\Hypertarget{class_socket__storage_afe016a4a9f5c0da8dc12bcfb92a1faec}\label{class_socket__storage_afe016a4a9f5c0da8dc12bcfb92a1faec} 
+void {\bfseries flag\+\_\+on} (char c, int flag)
+\item 
+\Hypertarget{class_socket__storage_a7914c608671e120eafc15a4ce94e3f35}\label{class_socket__storage_a7914c608671e120eafc15a4ce94e3f35} 
+void {\bfseries flag\+\_\+off} (char c, int flag)
+\item 
+\Hypertarget{class_socket__storage_a7588943f66bdf24c407ad5778ca224b3}\label{class_socket__storage_a7588943f66bdf24c407ad5778ca224b3} 
+void {\bfseries init\+\_\+flags} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_socket__constants}{Socket\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca}\label{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca} 
+enum \{ {\bfseries off}
+, {\bfseries bound}
+, {\bfseries listening}
+, {\bfseries connected}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a65905e7a53b83d2192af340f908955e8}\label{class_socket__constants_a65905e7a53b83d2192af340f908955e8} 
+enum \{ {\bfseries unix}
+, {\bfseries ip\+V4}
+, {\bfseries ip\+V6}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388}\label{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388} 
+enum \{ {\bfseries stream}
+, {\bfseries datagram}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77}\label{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77} 
+enum \{ \newline
+{\bfseries non\+\_\+block}
+, {\bfseries peek\+\_\+only}
+, {\bfseries truncate}
+, {\bfseries error\+\_\+queue}
+, \newline
+{\bfseries out\+\_\+of\+\_\+bound}
+, {\bfseries close\+\_\+on\+\_\+exec}
+, {\bfseries wait\+\_\+all}
+, {\bfseries confirm}
+, \newline
+{\bfseries do\+\_\+not\+\_\+route}
+, {\bfseries end\+\_\+of\+\_\+record}
+, {\bfseries more}
+, {\bfseries no\+\_\+signal}
+, \newline
+{\bfseries fast\+\_\+open}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_socket__describe}{Socket\+\_\+describe}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_ad6551cfd7ed635cfe96ba0d90141996f}{describe\+\_\+state}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_a3352baf1429f53be40de779faf12efdb}{describe\+\_\+domain}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_ac69334f55aa1a7c31657c612c0eb8a62}{describe\+\_\+type}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_a87cf384dfebe4f6db9b52a2b70642133}{describe\+\_\+flags}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_socket__constants}{Socket\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+static const int {\bfseries DEFAULT\+\_\+\+BACKLOG} = 4096
+\item 
+static int \mbox{\hyperlink{class_socket__constants_a80dc8a487a295d9a8733d9a6baadfda9}{flags}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_aa6e0f301146dd2bf009bea719ffccd5b}{domains}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_ac182306e7fc16d1ffb2ebdce007ddd0c}{types}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Socket/includes/Socket\+\_\+storage.\+hpp\item 
+Socket/storage/getters.\+cpp\item 
+Socket/storage/setters.\+cpp\end{DoxyCompactItemize}

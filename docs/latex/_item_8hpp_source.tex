@@ -1,0 +1,38 @@
+\doxysection{Item.\+hpp}
+\hypertarget{_item_8hpp_source}{}\label{_item_8hpp_source}\index{ServerConfig/NewParser/Item.hpp@{ServerConfig/NewParser/Item.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ITEM\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ITEM\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Directive.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Context.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{enum}\ ItemType\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ DIRECTIVE,}
+\DoxyCodeLine{00010\ \ \ \ \ CONTEXT,}
+\DoxyCodeLine{00011\ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_item}{Item}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ ItemType\ type;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_item_1_1_data}{Data}}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_context}{Context}}\ \ \ \ \ ctx;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_directive}{Directive}}\ \ \ dir;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}\ data;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Item();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ Item(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_directive}{Directive}}\&\ d);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Item(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_context}{Context}}\&\ c);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ Item(\textcolor{keyword}{const}\ \ Item\&\ other);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \string~Item();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ Item\&\ operator=(\textcolor{keyword}{const}\ Item\&\ rhs);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

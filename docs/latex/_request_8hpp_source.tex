@@ -1,0 +1,27 @@
+\doxysection{Request.\+hpp}
+\hypertarget{_request_8hpp_source}{}\label{_request_8hpp_source}\index{Request/Request.hpp@{Request/Request.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}PollSock.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}HttpMessage.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }Request\ :\ \textcolor{keyword}{public}\ HttpMessage\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ Request();}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \string~Request(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \&method(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \&path(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \&request\_version(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ queryString(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ fonction\ non\ membre\ pour\ print\ la\ Request}}
+\DoxyCodeLine{00021\ std::ostream\ \ \ \ \&operator<<(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_request}{Request}}\ \&req);}
+
+\end{DoxyCode}

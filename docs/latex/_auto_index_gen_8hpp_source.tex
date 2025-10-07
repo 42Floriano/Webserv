@@ -1,0 +1,39 @@
+\doxysection{Auto\+Index\+Gen.\+hpp}
+\hypertarget{_auto_index_gen_8hpp_source}{}\label{_auto_index_gen_8hpp_source}\index{AutoIndexGen/AutoIndexGen.hpp@{AutoIndexGen/AutoIndexGen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AUTO\_INDEX\_GEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ AUTO\_INDEX\_GEN\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <dirent.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }AutoIndexGen\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \textcolor{comment}{/*\ methods\ */}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GET,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ POST,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DELETE,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostringstream\ \ \_label;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ AutoIndexGen(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \string~AutoIndexGen(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ generateIndex(\textcolor{keywordtype}{int}\ method,\ \textcolor{keyword}{const}\ std::string\ \&uploadDirPath);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ findMethod(\textcolor{keywordtype}{int}\ method);}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

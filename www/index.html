@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WEBSERV</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 10vw;
+      font-weight: bold;
+      background: linear-gradient(
+        90deg, 
+        #E40303,
+        #FF8C00,
+        #FFED00,
+        #008026,
+        #24408E,
+        #732982
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
+
+    .button-wrapper {
+      flex: 1;
+      margin-top: -400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      height: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      background: #444;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>WEBSERV</h1>
+  
+  <div class="button-wrapper">
+    <div class="button-container">
+      <a href="/GET.html" class="btn">GET</a>
+      <a href="/POST.html" class="btn">POST</a>
+      <a href="/DELETE.html" class="btn">DELETE</a>
+    </div>
+  </div>
+</body>
+</html>

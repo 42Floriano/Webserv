@@ -1,0 +1,64 @@
+\doxysection{Poll\+Set.\+hpp}
+\hypertarget{_poll_set_8hpp_source}{}\label{_poll_set_8hpp_source}\index{PollSet/PollSet.hpp@{PollSet/PollSet.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POLLSET\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ POLLSET\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cerrno>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <poll.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Console.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Socket.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}SimpleSet.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}CallbackDB.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ \ \ }PollSet:\ \textcolor{keyword}{public}\ SimpleSet<struct\ pollfd,\ 4096>\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ event\_array\_size\ =\ 4;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ event\_array[event\_array\_size];}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \ event\_to\_string(\textcolor{keywordtype}{short}\ event);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \ events\_to\_string(\textcolor{keywordtype}{short}\ events);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ PollSet(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \string~PollSet(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_callback_d_b}{CallbackDB}}\ \ \ \ \ \ \ \ \_callbacks;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPollError(\textcolor{keywordtype}{int}\ errnum);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPollTimeout(\textcolor{keywordtype}{int}\ timeout\_ms);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPollSuccess(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_callback_d_b}{CallbackDB}}\ \ \ \ \ \ \ \ \&callbacks();}
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ registerCallback(\textcolor{keywordtype}{short}\ event,\ \mbox{\hyperlink{class_poll_callback}{PollCallback}}\ *cb);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ removeCallback(\textcolor{keywordtype}{short}\ event,\ \mbox{\hyperlink{class_poll_callback}{PollCallback}}\ *cb);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ ssize\_t\ \ \ \ \ \ \ \ \ \_get\_fd\_index(\mbox{\hyperlink{class_poll_callback}{PollCallback}}\ *cb);}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ onPollError(\textcolor{keywordtype}{int}\ errnum);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ onPollTimeout(\textcolor{keywordtype}{int}\ timeout\_ms);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ onPollSuccess(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ try\_exec(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{short}\ event,\ \textcolor{keywordtype}{short}\ revents);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ poll(\textcolor{keywordtype}{int}\ timeout);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ fd(\textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

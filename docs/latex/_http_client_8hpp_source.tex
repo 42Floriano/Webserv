@@ -1,0 +1,42 @@
+\doxysection{Http\+Client.\+hpp}
+\hypertarget{_http_client_8hpp_source}{}\label{_http_client_8hpp_source}\index{HttpClient/HttpClient.hpp@{HttpClient/HttpClient.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HTTPCLIENT\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ HTTPCLIENT\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}PollSock.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Request.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Response.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Client.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}ServerConfig.class.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cerrno>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }HttpClient:\ \textcolor{keyword}{public}\ Client\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ HttpClient(\mbox{\hyperlink{class_poll_set}{PollSet}}\ \&pset,\ \textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_address}{Address}}\ *addr,\ std::vector<LocationConfig>\ *loc);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \_onData(\textcolor{keyword}{const}\ std::string\ \&rbuf);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \_onWritable(std::string\ \&wbuf);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ incoming;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ outgoing;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<LocationConfig>\ *locations;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ setOnData(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ setOnWritable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ resolve\_path(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

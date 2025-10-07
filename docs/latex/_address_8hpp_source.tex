@@ -1,0 +1,77 @@
+\doxysection{Address.\+hpp}
+\hypertarget{_address_8hpp_source}{}\label{_address_8hpp_source}\index{Address/Address.hpp@{Address/Address.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ADDRESS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ ADDRESS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Wrapper\ Class\ for\ diffent\ kind\ of\ socket\ addresses\ !!}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ In\ C\ socket\ addresses\ are\ typically\ stored\ inside}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ a\ \`{}struct\ sockaddr\_storage`,\ which\ is\ passed}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ to\ a\ socket-\/function\ through\ a\ pointer\ of\ type}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ \`{}struct\ sockaddr\ *\`{}.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ Hence,\ all\ C\ socket\ functions\ requiring\ an}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ address,\ receive\ such\ argument\ via\ a\ pointer}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ to\ an\ obfuscated\ structure\ \`{}sockaddr`\ which\ points}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ to\ a\ structure\ \`{}sockaddr\_storage`.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ Type\ sockaddr\_storage\ is\ implement\ as\ a\ union\ of}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ types\ like\ (these\ are\ examples\ of\ specializations\ of}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ sockaddr):}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ -\/\ struct\ sockaddr\_un\ \ \ \ (unix-\/domain\ sockets)}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ -\/\ struct\ sockaddr\_in\ \ \ \ (ipV4\ sockets)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ -\/\ struct\ sockaddr\_in6\ \ \ (ipV6\ sockets)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ Moral\ of\ the\ story,\ sometimes,\ the\ C\ socket\ }}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ api\ requires\ some\ casting\ and\ some\ usless}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ lines\ of\ code\ to\ handle\ addresses.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ For\ a\ usable\ C++\ socket\ api,\ we\ must\ create}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ a\ class\ \`{}Address`.\ We\ want\ an\ omogeneous}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ interfaces\ for\ all\ type\ of\ address\ we\ care}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ \ about...}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <netdb.h>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}Address\_storage.hpp"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}Address\_describe.hpp"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}Address\_constants.hpp"{}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }Address:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_address__storage}{Address\_storage}},}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_address__describe}{Address\_describe}},}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_address__constants}{Address\_constants}}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{/*\ constructors\ */}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ Address(\textcolor{keyword}{struct}\ sockaddr\ *addr,\ socklen\_t\ addrlen);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ Address(std::string\ host,\ std::string\ service);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ Address(std::string\ host,\ uint16\_t\ port);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ Address(uint32\_t\ host,\ uint16\_t\ port);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ Address(std::string\ path);}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{/*\ orthodox\ canonical\ form\ */}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ Address(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ Address(\textcolor{keyword}{const}\ Address\ \&other);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ Address\ \&operator=(\textcolor{keyword}{const}\ Address\ \&rhs);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \string~Address(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{/*\ Non\ member\ overload\ to\ properly\ print\ an\ Address\ on\ an\ output\ stream*/}}
+\DoxyCodeLine{00065\ std::ostream\ \ \ \ \&operator<<(std::ostream\ \&output,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_address}{Address}}\ \&address);}
+\DoxyCodeLine{00066\ std::ostream\ \ \ \ \&operator<<(std::ostream\ \&output,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_address}{Address}}\ *address);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{/*\ Non\ member\ overload\ to\ deref\ an\ Address\ and\ obtain\ the\ sockaddr\ pointer\ */}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{struct\ }sockaddr\ *operator\&(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_address}{Address}}\ \&address);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

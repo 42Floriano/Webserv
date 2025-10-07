@@ -1,0 +1,25 @@
+\chapter{HTTP Notes }
+\hypertarget{md_readme}{}\label{md_readme}\index{HTTP Notes@{HTTP Notes}}
+\label{md_readme_autotoc_md0}%
+\Hypertarget{md_readme_autotoc_md0}%
+
+
+\`{}\`{}\`{}
+
+HTTP\+\_\+\+MSG \+:= FIRST\+\_\+\+LINE \texorpdfstring{$\ast$}{*}(HEADER) CRLF \mbox{[}BODY\mbox{]}
+
+FIRST\+\_\+\+LINE \+:= REQUEST\+\_\+\+LINE \texorpdfstring{$\vert$}{|} STATUS\+\_\+\+LINE
+
+REQUEST\+\_\+\+LINE \+:= METHOD SP REQUEST\+\_\+\+TARGET SP HTTP\+\_\+\+VERSION CRLF
+
+STATUS\+\_\+\+LINE \+:= HTTP\+\_\+\+VERSION SP STATUS\+\_\+\+CODE SP STATUS\+\_\+\+MSG CRLF
+
+STATUS\+\_\+\+CODE \+:= DIGIT DIGIT DIGIT
+
+HEADER \+:= FIELD\+\_\+\+NAME \textquotesingle{}\+:\textquotesingle{} OWS FIELD\+\_\+\+VALUE OWS
+
+SP \+:= \textquotesingle{} \textquotesingle{} HTAB \+:= \textquotesingle{}\textbackslash{}t\textquotesingle{} OWS \+:= {\itshape (SP \texorpdfstring{$\vert$}{|} HTAB) RWS \+:= 1}(SP \texorpdfstring{$\vert$}{|} HTAP) BWS \+:= OWS
+
+VCHAR \+:=
+
+\`{}\`{} 

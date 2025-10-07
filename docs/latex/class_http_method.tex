@@ -1,0 +1,132 @@
+\doxysection{Http\+Method Class Reference}
+\hypertarget{class_http_method}{}\label{class_http_method}\index{HttpMethod@{HttpMethod}}
+Inheritance diagram for Http\+Method\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_http_method}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_method_ad189c8ba82aab4b1f6146bc6810bcf7f}\label{class_http_method_ad189c8ba82aab4b1f6146bc6810bcf7f} 
+{\bfseries Http\+Method} (const std\+::string \&path)
+\item 
+\Hypertarget{class_http_method_afca4622e65125b3c9f7c65ae25affcb7}\label{class_http_method_afca4622e65125b3c9f7c65ae25affcb7} 
+{\bfseries Http\+Method} (const \mbox{\hyperlink{class_http_method}{Http\+Method}} \&other)
+\item 
+\Hypertarget{class_http_method_a4f3d9296fcba58c608e157ff8bc20bf9}\label{class_http_method_a4f3d9296fcba58c608e157ff8bc20bf9} 
+\mbox{\hyperlink{class_http_method}{Http\+Method}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_http_method}{Http\+Method}} \&other)
+\item 
+\Hypertarget{class_http_method_ae8fd0228da758a9196679f5648282f92}\label{class_http_method_ae8fd0228da758a9196679f5648282f92} 
+const std\+::string \& {\bfseries version} (void) const
+\item 
+\Hypertarget{class_http_method_a111fc311b8e741e269d24556ea357923}\label{class_http_method_a111fc311b8e741e269d24556ea357923} 
+const std\+::string \& {\bfseries status\+\_\+code} (void) const
+\item 
+\Hypertarget{class_http_method_a5cca18a447e3ddb4c66f2e1cf995e492}\label{class_http_method_a5cca18a447e3ddb4c66f2e1cf995e492} 
+const std\+::string \& {\bfseries status\+\_\+msg} (void) const
+\item 
+\Hypertarget{class_http_method_a44c4246e86799dbcdc977b4435fbdf96}\label{class_http_method_a44c4246e86799dbcdc977b4435fbdf96} 
+std\+::string {\bfseries make\+Error\+Body} (const std\+::string \&message)
+\item 
+\Hypertarget{class_http_method_a35145c98f223caa69ab6f38ed52bda5f}\label{class_http_method_a35145c98f223caa69ab6f38ed52bda5f} 
+bool {\bfseries file\+Exists} (void)
+\item 
+\Hypertarget{class_http_method_ad3511e29f47780697d5f72bd75578e1d}\label{class_http_method_ad3511e29f47780697d5f72bd75578e1d} 
+std\+::string {\bfseries read\+File\+Content} (void)
+\item 
+\Hypertarget{class_http_method_a92f00c61220e4623b02d6c38bbb5dfd0}\label{class_http_method_a92f00c61220e4623b02d6c38bbb5dfd0} 
+bool {\bfseries create\+Empty\+File} (void)
+\item 
+\Hypertarget{class_http_method_a4f66f286e36d65769105ee460d7fd666}\label{class_http_method_a4f66f286e36d65769105ee460d7fd666} 
+bool {\bfseries delete\+File} (void)
+\item 
+\Hypertarget{class_http_method_ab0b82d6329ce303c5ef98007fec00f95}\label{class_http_method_ab0b82d6329ce303c5ef98007fec00f95} 
+std\+::string {\bfseries handle\+Delete} (void)
+\item 
+\Hypertarget{class_http_method_aa330e5880a254ad4f54fb21e8e3b9f40}\label{class_http_method_aa330e5880a254ad4f54fb21e8e3b9f40} 
+std\+::string {\bfseries handle\+Get} (void)
+\item 
+\Hypertarget{class_http_method_a0ad9feed20c691e01823c3bbf41d8d4f}\label{class_http_method_a0ad9feed20c691e01823c3bbf41d8d4f} 
+std\+::string {\bfseries handle\+Post} (void)
+\item 
+\Hypertarget{class_http_method_ae1862af0a8defbd439a02a4e68ba4b1e}\label{class_http_method_ae1862af0a8defbd439a02a4e68ba4b1e} 
+std\+::string {\bfseries get\+File\+Path} (void)
+\item 
+\Hypertarget{class_http_method_af5ebc32a1d2bde857386a933415ea2b0}\label{class_http_method_af5ebc32a1d2bde857386a933415ea2b0} 
+void {\bfseries set\+Target\+Path} (const std\+::string \&target\+Path)
+\item 
+\Hypertarget{class_http_method_af6e56b4e343df4dfa5562c83c226dd09}\label{class_http_method_af6e56b4e343df4dfa5562c83c226dd09} 
+void {\bfseries set\+Raw\+Response} (int status\+Code)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries decode} (void)
+\item 
+void {\bfseries encode\+\_\+first\+\_\+line} (void)
+\item 
+void {\bfseries encode\+\_\+headers} (void)
+\item 
+void {\bfseries encode} (void)
+\item 
+bool {\bfseries getline} (void)
+\item 
+bool {\bfseries getchunk} (void)
+\item 
+void {\bfseries parse\+\_\+chunk\+\_\+size} (void)
+\item 
+bool {\bfseries parse} (void)
+\item 
+void {\bfseries parse\+\_\+first\+\_\+line} (void)
+\item 
+void {\bfseries parse\+\_\+headers} (void)
+\item 
+void {\bfseries parse\+\_\+trailers} (void)
+\item 
+int {\bfseries phase} (void) const
+\item 
+void {\bfseries set\+Phase} (int n)
+\item 
+const std\+::map$<$ std\+::string, std\+::string $>$ \& {\bfseries headers} (void) const
+\item 
+const std\+::string \& {\bfseries header} (const std\+::string \&key) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_message_ae480a953f4aa7bdee0c3a919383a1384}\label{class_http_message_ae480a953f4aa7bdee0c3a919383a1384} 
+enum \{ \newline
+{\bfseries reading\+\_\+first\+\_\+line}
+, {\bfseries reading\+\_\+header}
+, {\bfseries reading\+\_\+body}
+, {\bfseries reading\+\_\+chunk\+\_\+size}
+, \newline
+{\bfseries reading\+\_\+chunk\+\_\+data}
+, {\bfseries reading\+\_\+trailers}
+, {\bfseries done}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries \+\_\+first\+\_\+line} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+headers}
+\item 
+std\+::stringstream {\bfseries \+\_\+body}
+\item 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+trailers}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Http\+Method/Http\+Method.\+hpp\item 
+Http\+Method/constructors.\+cpp\item 
+Http\+Method/getters.\+cpp\item 
+Http\+Method/Http\+Method.\+cpp\item 
+Http\+Method/setters.\+cpp\item 
+Http\+Method/utils.\+cpp\end{DoxyCompactItemize}

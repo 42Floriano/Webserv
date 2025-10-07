@@ -1,0 +1,36 @@
+\doxysection{Simple\+Set.\+hpp}
+\hypertarget{_simple_set_8hpp_source}{}\label{_simple_set_8hpp_source}\index{SimpleSet/SimpleSet.hpp@{SimpleSet/SimpleSet.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SIMPLESET\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ SIMPLESET\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Console.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Item,\ \textcolor{keywordtype}{size\_t}\ MAX\_SIZE>}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }SimpleSet\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \_capacity\ =\ MAX\_SIZE;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_item}{Item}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_data[MAX\_SIZE];}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \_size;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ SimpleSet(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ SimpleSet\ \&operator=(\textcolor{keyword}{const}\ SimpleSet\ \&rhs);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~SimpleSet(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ add(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_item}{Item}}\ \&item);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ remove(\textcolor{keywordtype}{size\_t}\ index);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ size(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_item}{Item}}\ \ \ \ \ \ \ \ *ptr(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ index(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_item}{Item}}\ \&item);}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}SimpleSet.tpp"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

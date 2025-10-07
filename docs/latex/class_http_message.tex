@@ -1,0 +1,97 @@
+\doxysection{Http\+Message Class Reference}
+\hypertarget{class_http_message}{}\label{class_http_message}\index{HttpMessage@{HttpMessage}}
+Inheritance diagram for Http\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_http_message}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_message_ae480a953f4aa7bdee0c3a919383a1384}\label{class_http_message_ae480a953f4aa7bdee0c3a919383a1384} 
+enum \{ \newline
+{\bfseries reading\+\_\+first\+\_\+line}
+, {\bfseries reading\+\_\+header}
+, {\bfseries reading\+\_\+body}
+, {\bfseries reading\+\_\+chunk\+\_\+size}
+, \newline
+{\bfseries reading\+\_\+chunk\+\_\+data}
+, {\bfseries reading\+\_\+trailers}
+, {\bfseries done}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_message_a76971dc17ab30b5cf92c7c58b781a17e}\label{class_http_message_a76971dc17ab30b5cf92c7c58b781a17e} 
+void {\bfseries decode} (void)
+\item 
+\Hypertarget{class_http_message_ab259f7d32e3e38adf5e58657b7e4bfba}\label{class_http_message_ab259f7d32e3e38adf5e58657b7e4bfba} 
+void {\bfseries encode\+\_\+first\+\_\+line} (void)
+\item 
+\Hypertarget{class_http_message_abf41366b5d7ddd48f54504deba843345}\label{class_http_message_abf41366b5d7ddd48f54504deba843345} 
+void {\bfseries encode\+\_\+headers} (void)
+\item 
+\Hypertarget{class_http_message_a06481b0cc94b487bbb24aff4051eda29}\label{class_http_message_a06481b0cc94b487bbb24aff4051eda29} 
+void {\bfseries encode} (void)
+\item 
+\Hypertarget{class_http_message_aa01cad315acf6616a16247ef4c8f53ce}\label{class_http_message_aa01cad315acf6616a16247ef4c8f53ce} 
+bool {\bfseries getline} (void)
+\item 
+\Hypertarget{class_http_message_a6ae15c61a3be2b712af7b9ab03b40efb}\label{class_http_message_a6ae15c61a3be2b712af7b9ab03b40efb} 
+bool {\bfseries getchunk} (void)
+\item 
+\Hypertarget{class_http_message_a855401024c9463f5095df43d8d7e29e2}\label{class_http_message_a855401024c9463f5095df43d8d7e29e2} 
+void {\bfseries parse\+\_\+chunk\+\_\+size} (void)
+\item 
+\Hypertarget{class_http_message_a74e8d55fcda016e48f5be275e7f2dd1a}\label{class_http_message_a74e8d55fcda016e48f5be275e7f2dd1a} 
+bool {\bfseries parse} (void)
+\item 
+\Hypertarget{class_http_message_a5aacbe3521debe68e47f733a5c4da4f1}\label{class_http_message_a5aacbe3521debe68e47f733a5c4da4f1} 
+void {\bfseries parse\+\_\+first\+\_\+line} (void)
+\item 
+\Hypertarget{class_http_message_ab3e2ec655e8d1464d778af6e9e08a979}\label{class_http_message_ab3e2ec655e8d1464d778af6e9e08a979} 
+void {\bfseries parse\+\_\+headers} (void)
+\item 
+\Hypertarget{class_http_message_a5b417998537ac011c109873bf85e30dc}\label{class_http_message_a5b417998537ac011c109873bf85e30dc} 
+void {\bfseries parse\+\_\+trailers} (void)
+\item 
+\Hypertarget{class_http_message_a0b4102b60ae714ed6b771b68e1404ad8}\label{class_http_message_a0b4102b60ae714ed6b771b68e1404ad8} 
+int {\bfseries phase} (void) const
+\item 
+\Hypertarget{class_http_message_a8e29a594526ffed490e63e8d429fa7b6}\label{class_http_message_a8e29a594526ffed490e63e8d429fa7b6} 
+void {\bfseries set\+Phase} (int n)
+\item 
+\Hypertarget{class_http_message_a436468212e22c31edd3340c1f0539625}\label{class_http_message_a436468212e22c31edd3340c1f0539625} 
+const std\+::map$<$ std\+::string, std\+::string $>$ \& {\bfseries headers} (void) const
+\item 
+\Hypertarget{class_http_message_aa892d92236139a8f43f05c9885f4d330}\label{class_http_message_aa892d92236139a8f43f05c9885f4d330} 
+const std\+::string \& {\bfseries header} (const std\+::string \&key) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_message_a8949fad65f2260b0f52651ff63a59e32}\label{class_http_message_a8949fad65f2260b0f52651ff63a59e32} 
+std\+::string {\bfseries \+\_\+first\+\_\+line} \mbox{[}3\mbox{]}
+\item 
+\Hypertarget{class_http_message_a400dc5a06e704d11ff7b5900f6da06aa}\label{class_http_message_a400dc5a06e704d11ff7b5900f6da06aa} 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+headers}
+\item 
+\Hypertarget{class_http_message_a7f428901f226418819201e4b3d3f7dd9}\label{class_http_message_a7f428901f226418819201e4b3d3f7dd9} 
+std\+::stringstream {\bfseries \+\_\+body}
+\item 
+\Hypertarget{class_http_message_a043b6b9e907cf20f62034ed50705951c}\label{class_http_message_a043b6b9e907cf20f62034ed50705951c} 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+trailers}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Http\+Message/Http\+Message.\+hpp\item 
+Http\+Message/codec.\+cpp\item 
+Http\+Message/constructors.\+cpp\item 
+Http\+Message/getchunk.\+cpp\item 
+Http\+Message/getters.\+cpp\item 
+Http\+Message/parse.\+cpp\item 
+Http\+Message/setters.\+cpp\end{DoxyCompactItemize}

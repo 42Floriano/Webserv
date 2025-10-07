@@ -1,0 +1,35 @@
+\doxysection{Config\+Parser.\+class.\+hpp}
+\hypertarget{_config_parser_8class_8hpp_source}{}\label{_config_parser_8class_8hpp_source}\index{ServerConfig/ConfigParser.class.hpp@{ServerConfig/ConfigParser.class.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFIGPARSER\_CLASS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFIGPARSER\_CLASS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\#include\ "{}Webserv.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ServerConfig.class.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ConfigParser.class.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ParsVerifier.class.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_server_config}{ServerConfig}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }ConfigParser\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ ConfigParser();}
+\DoxyCodeLine{00018\ \ \ \ \ \string~ConfigParser();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_location_config}{LocationConfig}}\ split\_line\_location(std::ifstream\&\ file,\ \textcolor{keyword}{const}\ std::string\&\ line);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ split\_line\_server(std::string\&\ input,\ \mbox{\hyperlink{class_server_config}{ServerConfig}}\&\ conf);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ create(std::string\&\ input,\ \mbox{\hyperlink{class_server_config}{ServerConfig}}\&\ sv\_cf);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ print\_conf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_server_config}{ServerConfig}}\&\ conf);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//new\ config\ parser}}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

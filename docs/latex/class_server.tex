@@ -1,0 +1,244 @@
+\doxysection{Server\texorpdfstring{$<$}{<} Client\+Handler \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_server}{}\label{class_server}\index{Server$<$ ClientHandler $>$@{Server$<$ ClientHandler $>$}}
+Inheritance diagram for Server\texorpdfstring{$<$}{<} Client\+Handler \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=7.000000cm]{class_server}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_server_ad60a610d3795c4da20e9ae0802781431}\label{class_server_ad60a610d3795c4da20e9ae0802781431} 
+{\bfseries Server} (const std\+::string \&host, const std\+::string \&port, std\+::vector$<$ \mbox{\hyperlink{class_location_config}{Location\+Config}} $>$ \texorpdfstring{$\ast$}{*}locations)
+\item 
+void \mbox{\hyperlink{class_server_a4027c77463803fe584c28f06186f2234}{on\+Connection}} (int clientfd, \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}clientaddr)
+\item 
+\Hypertarget{class_server_a9c14fbba7fe170302398beb94cef217b}\label{class_server_a9c14fbba7fe170302398beb94cef217b} 
+void {\bfseries on\+Too\+Many\+Connections} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_poll_sock}{Poll\+Sock}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Poll\+Sock} (\mbox{\hyperlink{class_poll_set}{Poll\+Set}} \&pset, int domain, int type, int protocol)
+\item 
+{\bfseries Poll\+Sock} (\mbox{\hyperlink{class_poll_set}{Poll\+Set}} \&pset, int fd, \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}addr)
+\item 
+void {\bfseries register\+Client} (\mbox{\hyperlink{class_poll_sock}{Poll\+Sock}} \texorpdfstring{$\ast$}{*}client)
+\item 
+void {\bfseries listen} (int backlog=4096)
+\item 
+void {\bfseries listen} (const std\+::string \&host, const std\+::string \&port, int backlog=4096)
+\item 
+int {\bfseries fd} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_poll_callback}{Poll\+Callback}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries on} (short pollevent)
+\item 
+int {\bfseries fd} (void) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_socket}{Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Socket} (int domain, int type, int protocol)
+\item 
+{\bfseries Socket} (int fd, \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}addr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_c___socket}{C\+\_\+\+Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries listen} (int backlog=C\+\_\+\+Socket\+::\+DEFAULT\+\_\+\+BACKLOG)
+\item 
+void {\bfseries listen} (const std\+::string \&addr, const std\+::string \&port)
+\item 
+void {\bfseries accept} (int \texorpdfstring{$\ast$}{*}client\+\_\+fd, \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}addr)
+\item 
+void {\bfseries connect} (const std\+::string \&addr, const std\+::string \&service)
+\item 
+void {\bfseries bind} (const std\+::string \&addr, const std\+::string \&service)
+\item 
+ssize\+\_\+t {\bfseries read} (char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+ssize\+\_\+t {\bfseries write} (const char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+int {\bfseries close} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_socket__storage}{Socket\+\_\+storage}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries state} () const
+\item 
+int {\bfseries fd} () const
+\item 
+int {\bfseries domain} () const
+\item 
+int {\bfseries protocol} () const
+\item 
+int {\bfseries type} () const
+\item 
+int {\bfseries flags} (char c) const
+\item 
+bool {\bfseries query\+\_\+flag} (char c, int flag) const
+\item 
+const \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*} {\bfseries address} () const
+\item 
+const \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*} {\bfseries remote\+Address} () const
+\item 
+void {\bfseries init} (void)
+\item 
+void {\bfseries configure} (int domain, int type, int protocol)
+\item 
+void {\bfseries configure} (int fd, \mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}a)
+\item 
+void {\bfseries set\+Address} (\mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}a)
+\item 
+void {\bfseries set\+Remote\+Address} (\mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}a)
+\item 
+void {\bfseries state} (int new\+\_\+state)
+\item 
+void {\bfseries flag\+\_\+on} (char c, int flag)
+\item 
+void {\bfseries flag\+\_\+off} (char c, int flag)
+\item 
+void {\bfseries init\+\_\+flags} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_server_a975fbcbd5338e8182c248ae1aef0a74c}\label{class_server_a975fbcbd5338e8182c248ae1aef0a74c} 
+static \mbox{\hyperlink{class_poll_set}{Poll\+Set}} {\bfseries global\+\_\+pset}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_c___socket}{C\+\_\+\+Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+static const int {\bfseries default\+\_\+backlog} = DEFAULT\+\_\+\+BACKLOG
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_socket__describe}{Socket\+\_\+describe}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_ad6551cfd7ed635cfe96ba0d90141996f}{describe\+\_\+state}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_a3352baf1429f53be40de779faf12efdb}{describe\+\_\+domain}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_ac69334f55aa1a7c31657c612c0eb8a62}{describe\+\_\+type}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_a87cf384dfebe4f6db9b52a2b70642133}{describe\+\_\+flags}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_socket__constants}{Socket\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+static const int {\bfseries DEFAULT\+\_\+\+BACKLOG} = 4096
+\item 
+static int \mbox{\hyperlink{class_socket__constants_a80dc8a487a295d9a8733d9a6baadfda9}{flags}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_aa6e0f301146dd2bf009bea719ffccd5b}{domains}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_ac182306e7fc16d1ffb2ebdce007ddd0c}{types}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_socket__constants}{Socket\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca}\label{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca} 
+enum \{ {\bfseries off}
+, {\bfseries bound}
+, {\bfseries listening}
+, {\bfseries connected}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a65905e7a53b83d2192af340f908955e8}\label{class_socket__constants_a65905e7a53b83d2192af340f908955e8} 
+enum \{ {\bfseries unix}
+, {\bfseries ip\+V4}
+, {\bfseries ip\+V6}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388}\label{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388} 
+enum \{ {\bfseries stream}
+, {\bfseries datagram}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77}\label{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77} 
+enum \{ \newline
+{\bfseries non\+\_\+block}
+, {\bfseries peek\+\_\+only}
+, {\bfseries truncate}
+, {\bfseries error\+\_\+queue}
+, \newline
+{\bfseries out\+\_\+of\+\_\+bound}
+, {\bfseries close\+\_\+on\+\_\+exec}
+, {\bfseries wait\+\_\+all}
+, {\bfseries confirm}
+, \newline
+{\bfseries do\+\_\+not\+\_\+route}
+, {\bfseries end\+\_\+of\+\_\+record}
+, {\bfseries more}
+, {\bfseries no\+\_\+signal}
+, \newline
+{\bfseries fast\+\_\+open}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_c___socket}{C\+\_\+\+Socket}}}
+\begin{DoxyCompactItemize}
+\item 
+static bool {\bfseries is\+Connected} (int fd)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_poll_sock}{Poll\+Sock}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_poll_sock_ad749017f7818e19d98cd465feee10093}{\+\_\+on\+POLLIN}} (void)
+\item 
+void \mbox{\hyperlink{class_poll_sock_a83626c4a4ba199d4a38d8d0d29c91dc9}{\+\_\+on\+POLLOUT}} (void)
+\item 
+void \mbox{\hyperlink{class_poll_sock_ad376b7d54ce2155b59ec2965486ba3ac}{\+\_\+on\+POLLERR}} (void)
+\item 
+void \mbox{\hyperlink{class_poll_sock_a16b3faf4c6f5d1eabcfa82939fabaaad}{\+\_\+on\+POLLHUP}} (void)
+\item 
+int \mbox{\hyperlink{class_poll_sock_a53da025062911d58c7854584d647fcd6}{\+\_\+get\+\_\+underlying\+\_\+fd}} (void) const
+\item 
+virtual void {\bfseries on\+Disconnect} (void)
+\item 
+virtual void {\bfseries on\+Error} (void)
+\item 
+virtual void {\bfseries on\+Data} (void)
+\item 
+virtual void {\bfseries on\+Writable} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_poll_callback}{Poll\+Callback}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries \+\_\+on\+POLLPRI} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLRDHUP} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLNVAL} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_poll_sock}{Poll\+Sock}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_poll_set}{Poll\+Set}} \& {\bfseries \+\_\+pset}
+\item 
+int {\bfseries \+\_\+reserved\+\_\+fd}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_server_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_server_a4027c77463803fe584c28f06186f2234}\index{Server$<$ ClientHandler $>$@{Server$<$ ClientHandler $>$}!onConnection@{onConnection}}
+\index{onConnection@{onConnection}!Server$<$ ClientHandler $>$@{Server$<$ ClientHandler $>$}}
+\doxysubsubsection{\texorpdfstring{onConnection()}{onConnection()}}
+{\footnotesize\ttfamily \label{class_server_a4027c77463803fe584c28f06186f2234} 
+template$<$typename Client\+Handler$>$ \\
+void \mbox{\hyperlink{class_server}{Server}}$<$ Client\+Handler $>$\+::on\+Connection (\begin{DoxyParamCaption}\item[{int}]{clientfd}{, }\item[{\mbox{\hyperlink{class_address}{Address}} \texorpdfstring{$\ast$}{*}}]{clientaddr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_poll_sock}{Poll\+Sock}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Server/Server.\+hpp\end{DoxyCompactItemize}

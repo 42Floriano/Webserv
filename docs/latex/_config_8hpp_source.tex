@@ -1,0 +1,28 @@
+\doxysection{Config.\+hpp}
+\hypertarget{_config_8hpp_source}{}\label{_config_8hpp_source}\index{ServerConfig/NewParser/Config.hpp@{ServerConfig/NewParser/Config.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFIG\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFIG\_HPP\ }}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Item.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_item}{Item}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }Config\ :\ \textcolor{keyword}{public}\ std::vector<Item>\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Config();}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Config(std::istream\&\ input);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Config(\textcolor{keyword}{const}\ Config\&\ other);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Config\&\ operator=(\textcolor{keyword}{const}\ Config\&\ rhs);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \string~Config();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ Config\ parse(std::istream\&\ input);\ \textcolor{comment}{/*\ throw\ exception\ */}}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

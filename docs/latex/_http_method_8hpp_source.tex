@@ -1,0 +1,64 @@
+\doxysection{Http\+Method.\+hpp}
+\hypertarget{_http_method_8hpp_source}{}\label{_http_method_8hpp_source}\index{HttpMethod/HttpMethod.hpp@{HttpMethod/HttpMethod.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HTTPMETHOD\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ HTTPMETHOD\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}HttpMessage.hpp"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#\ define\ FNF\ \ \ \ "{}File\ not\ found"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#\ define\ RE\ \ \ \ \ "{}Unable\ to\ open\ file"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#\ define\ DE\ \ \ \ \ "{}Failed\ to\ delete\ file"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#\ define\ CE\ \ \ \ \ "{}Failed\ to\ create\ file"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }HttpMethod\ :\ \textcolor{keyword}{public}\ HttpMessage\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ HttpMethod(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ HttpMethod(\textcolor{keyword}{const}\ std::string\ \&path);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ HttpMethod(\textcolor{keyword}{const}\ HttpMethod\ \&other);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ HttpMethod\&\ operator=(\textcolor{keyword}{const}\ HttpMethod\ \&other);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \string~HttpMethod(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \_filePath;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostringstream\ \ fileContent;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \_deleteMethod(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \_getMethod(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \_postMethod(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ First\ line}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \&version(\textcolor{keywordtype}{void})\ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \&status\_code(\textcolor{keywordtype}{void})\ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \&status\_msg(\textcolor{keywordtype}{void})\ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ makeErrorBody(\textcolor{keyword}{const}\ std::string\ \&message);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ fileExists(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ readFileContent(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ createEmptyFile(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ deleteFile(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ handleDelete(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ handleGet(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ handlePost(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ getFilePath(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ setTargetPath(\textcolor{keyword}{const}\ std::string\ \&targetPath);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ setRawResponse(\textcolor{keywordtype}{int}\ statusCode);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

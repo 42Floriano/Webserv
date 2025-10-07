@@ -1,0 +1,142 @@
+\doxysection{Socket\+\_\+describe Class Reference}
+\hypertarget{class_socket__describe}{}\label{class_socket__describe}\index{Socket\_describe@{Socket\_describe}}
+Inheritance diagram for Socket\+\_\+describe\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=8.000000cm]{class_socket__describe}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_ad6551cfd7ed635cfe96ba0d90141996f}{describe\+\_\+state}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_a3352baf1429f53be40de779faf12efdb}{describe\+\_\+domain}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_ac69334f55aa1a7c31657c612c0eb8a62}{describe\+\_\+type}} \mbox{[}$\,$\mbox{]}
+\item 
+static std\+::string \mbox{\hyperlink{class_socket__describe_a87cf384dfebe4f6db9b52a2b70642133}{describe\+\_\+flags}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_socket__constants}{Socket\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+static const int {\bfseries DEFAULT\+\_\+\+BACKLOG} = 4096
+\item 
+static int \mbox{\hyperlink{class_socket__constants_a80dc8a487a295d9a8733d9a6baadfda9}{flags}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_aa6e0f301146dd2bf009bea719ffccd5b}{domains}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_ac182306e7fc16d1ffb2ebdce007ddd0c}{types}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_socket__constants}{Socket\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca}\label{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca} 
+enum \{ {\bfseries off}
+, {\bfseries bound}
+, {\bfseries listening}
+, {\bfseries connected}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a65905e7a53b83d2192af340f908955e8}\label{class_socket__constants_a65905e7a53b83d2192af340f908955e8} 
+enum \{ {\bfseries unix}
+, {\bfseries ip\+V4}
+, {\bfseries ip\+V6}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388}\label{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388} 
+enum \{ {\bfseries stream}
+, {\bfseries datagram}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77}\label{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77} 
+enum \{ \newline
+{\bfseries non\+\_\+block}
+, {\bfseries peek\+\_\+only}
+, {\bfseries truncate}
+, {\bfseries error\+\_\+queue}
+, \newline
+{\bfseries out\+\_\+of\+\_\+bound}
+, {\bfseries close\+\_\+on\+\_\+exec}
+, {\bfseries wait\+\_\+all}
+, {\bfseries confirm}
+, \newline
+{\bfseries do\+\_\+not\+\_\+route}
+, {\bfseries end\+\_\+of\+\_\+record}
+, {\bfseries more}
+, {\bfseries no\+\_\+signal}
+, \newline
+{\bfseries fast\+\_\+open}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_socket__describe_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_socket__describe_a3352baf1429f53be40de779faf12efdb}\index{Socket\_describe@{Socket\_describe}!describe\_domain@{describe\_domain}}
+\index{describe\_domain@{describe\_domain}!Socket\_describe@{Socket\_describe}}
+\doxysubsubsection{\texorpdfstring{describe\_domain}{describe\_domain}}
+{\footnotesize\ttfamily \label{class_socket__describe_a3352baf1429f53be40de779faf12efdb} 
+std\+::string Socket\+\_\+describe\+::describe\+\_\+domain\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::unix]\ =\ \textcolor{stringliteral}{"{}unix\ domain\ socket"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::ipV4]\ =\ \textcolor{stringliteral}{"{}ip\ (V4)\ socket"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::ipV6]\ =\ \textcolor{stringliteral}{"{}ip\ (V6)\ socket"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_socket__describe_a87cf384dfebe4f6db9b52a2b70642133}\index{Socket\_describe@{Socket\_describe}!describe\_flags@{describe\_flags}}
+\index{describe\_flags@{describe\_flags}!Socket\_describe@{Socket\_describe}}
+\doxysubsubsection{\texorpdfstring{describe\_flags}{describe\_flags}}
+{\footnotesize\ttfamily \label{class_socket__describe_a87cf384dfebe4f6db9b52a2b70642133} 
+std\+::string Socket\+\_\+describe\+::describe\+\_\+flags\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::non\_block]\ =\ \textcolor{stringliteral}{"{}non-\/blocking"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::peek\_only]\ =\ \textcolor{stringliteral}{"{}peek-\/only"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_socket__describe_ad6551cfd7ed635cfe96ba0d90141996f}\index{Socket\_describe@{Socket\_describe}!describe\_state@{describe\_state}}
+\index{describe\_state@{describe\_state}!Socket\_describe@{Socket\_describe}}
+\doxysubsubsection{\texorpdfstring{describe\_state}{describe\_state}}
+{\footnotesize\ttfamily \label{class_socket__describe_ad6551cfd7ed635cfe96ba0d90141996f} 
+std\+::string Socket\+\_\+describe\+::describe\+\_\+state\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::off]\ =\ \textcolor{stringliteral}{"{}off"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::bound]\ =\ \textcolor{stringliteral}{"{}bound"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::listening]\ =\ \textcolor{stringliteral}{"{}listening"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::connected]\ =\ \textcolor{stringliteral}{"{}connected"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_socket__describe_ac69334f55aa1a7c31657c612c0eb8a62}\index{Socket\_describe@{Socket\_describe}!describe\_type@{describe\_type}}
+\index{describe\_type@{describe\_type}!Socket\_describe@{Socket\_describe}}
+\doxysubsubsection{\texorpdfstring{describe\_type}{describe\_type}}
+{\footnotesize\ttfamily \label{class_socket__describe_ac69334f55aa1a7c31657c612c0eb8a62} 
+std\+::string Socket\+\_\+describe\+::describe\+\_\+type\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::stream]\ =\ \textcolor{stringliteral}{"{}stream\ (SOCK\_STREAM)"{}},}
+\DoxyCodeLine{\ \ \ \ [Socket\_constants::datagram]\ =\ \textcolor{stringliteral}{"{}datagram\ (SOCK\_DGRAM)"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Socket/includes/Socket\+\_\+describe.\+hpp\item 
+Socket/describe.\+cpp\end{DoxyCompactItemize}

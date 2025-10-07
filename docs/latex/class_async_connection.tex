@@ -1,0 +1,67 @@
+\doxysection{Async\+Connection Class Reference}
+\hypertarget{class_async_connection}{}\label{class_async_connection}\index{AsyncConnection@{AsyncConnection}}
+Inheritance diagram for Async\+Connection\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_async_connection}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_async_connection_a47ba5a78c90ace865e040a0bcdb2c811}\label{class_async_connection_a47ba5a78c90ace865e040a0bcdb2c811} 
+void {\bfseries connect} (const std\+::string \&host, const std\+::string port)
+\item 
+\Hypertarget{class_async_connection_a989bffcf2c409dc4222251dff3669c86}\label{class_async_connection_a989bffcf2c409dc4222251dff3669c86} 
+void {\bfseries write} (char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t len)
+\item 
+\Hypertarget{class_async_connection_a4810e68086c048f140b3c91561959b25}\label{class_async_connection_a4810e68086c048f140b3c91561959b25} 
+void {\bfseries read} (char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t len)
+\item 
+\Hypertarget{class_async_connection_a550511c131a39c2321221f68f394cb64}\label{class_async_connection_a550511c131a39c2321221f68f394cb64} 
+void {\bfseries close} ()
+\item 
+\Hypertarget{class_async_connection_aa3850fdf9c11abdb1839bb561b648b74}\label{class_async_connection_aa3850fdf9c11abdb1839bb561b648b74} 
+virtual void {\bfseries \+\_\+on\+Disconnect} ()
+\item 
+\Hypertarget{class_async_connection_a3f99d86e958e4a7dbeaf36ef54c06ebc}\label{class_async_connection_a3f99d86e958e4a7dbeaf36ef54c06ebc} 
+virtual void {\bfseries \+\_\+on\+Error} ()
+\item 
+\Hypertarget{class_async_connection_a0b051e17db3ffcf538422e8fffe7250a}\label{class_async_connection_a0b051e17db3ffcf538422e8fffe7250a} 
+virtual void {\bfseries \+\_\+on\+Data} ()
+\item 
+\Hypertarget{class_async_connection_a142d8fd5e9c5d421f3f292bcd5ce7402}\label{class_async_connection_a142d8fd5e9c5d421f3f292bcd5ce7402} 
+virtual void {\bfseries \+\_\+on\+Writable} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_poll_callback}{Poll\+Callback}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries on} (short pollevent)
+\item 
+int {\bfseries fd} (void) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_poll_callback}{Poll\+Callback}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries \+\_\+on\+POLLIN} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLPRI} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLOUT} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLRDHUP} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLHUP} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLERR} (void)
+\item 
+virtual void {\bfseries \+\_\+on\+POLLNVAL} (void)
+\item 
+virtual int {\bfseries \+\_\+get\+\_\+underlying\+\_\+fd} (void) const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Poll\+Sock/ideas.\+cpp\end{DoxyCompactItemize}

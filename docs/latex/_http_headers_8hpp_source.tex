@@ -1,0 +1,33 @@
+\doxysection{Http\+Headers.\+hpp}
+\hypertarget{_http_headers_8hpp_source}{}\label{_http_headers_8hpp_source}\index{HttpHeaders/HttpHeaders.hpp@{HttpHeaders/HttpHeaders.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HTTPHEADERS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ HTTPHEADERS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }HttpHeaders\ :\ \textcolor{keyword}{public}\ std::map<std::string,\ std::string>\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ HttpHeaders(\textcolor{keywordtype}{void}):\ current\_key(),\ sealed(0)\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::string\ current\_key;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ sealed;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse(std::string\ \&line);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_line(std::string\ \&line);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_new\_header(std::string\ \&line);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_obsolate\_fold(std::string\ \&line);}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

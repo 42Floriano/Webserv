@@ -1,0 +1,63 @@
+\doxysection{Server.\+hpp}
+\hypertarget{_server_8hpp_source}{}\label{_server_8hpp_source}\index{Server/Server.hpp@{Server/Server.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SERVER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ SERVER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Socket.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}PollSet.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Client.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}LocationConfig.class.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ClientHandler>}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ \ \ }Server:\ \textcolor{keyword}{public}\ PollSock\ \ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::vector<LocationConfig>\ *locations;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_reserved\_fd;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \_reserve\_fd()\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\_reserved\_fd\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_reserved\_fd\ =\ ::dup(this-\/>fd());}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\_reserved\_fd\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Server:\ could\ not\ reserve\ fd"{}});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \_unreserve\_fd()\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\_reserved\_fd\ >\ -\/\ 1)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ::close(this-\/>\_reserved\_fd);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_poll_set}{PollSet}}\ \ \ global\_pset;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ Server(\textcolor{keyword}{const}\ std::string\ \&host,\ \textcolor{keyword}{const}\ std::string\ \&port,\ std::vector<LocationConfig>\ *locations);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onConnection(\textcolor{keywordtype}{int}\ clientfd,\ \mbox{\hyperlink{class_address}{Address}}\ *clientaddr);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onTooManyConnections()\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ console::error\ <<\ \textcolor{stringliteral}{"{}Too\ many\ clients"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ client\_fd;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_address}{Address}}\ \ *client\_address;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_unreserve\_fd();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>accept(\&client\_fd,\ \&client\_address);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ console::error\ <<\ \textcolor{stringliteral}{"{}Forced\ client\ has\ fd\ "{}}\ <<\ client\_fd\ <<\ std::endl;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ ::close(client\_fd);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\_reserve\_fd();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}Server.constructors.tpp"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}Server.onConnection.tpp"{}}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

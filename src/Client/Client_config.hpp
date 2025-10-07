@@ -1,0 +1,8 @@
+#ifndef CLIENT_CONFIG_HPP
+# define CLIENT_CONFIG_HPP
+
+#ifndef CLIENT_BUFFER_SIZE
+# define CLIENT_BUFFER_SIZE	4096
+#endif
+
+#endif

@@ -1,0 +1,55 @@
+\doxysection{Pars\+Verifier.\+class.\+hpp}
+\hypertarget{_pars_verifier_8class_8hpp_source}{}\label{_pars_verifier_8class_8hpp_source}\index{ServerConfig/ParsVerifier.class.hpp@{ServerConfig/ParsVerifier.class.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARSVERIFIR\_CLASS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARSVERIFIR\_CLASS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\#include\ "{}Webserv.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ServerConfig.class.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_server_config}{ServerConfig}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }ParsVerifier\{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ ParsVerifier();}
+\DoxyCodeLine{00020\ \ \ \string~ParsVerifier();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ ServerConfig\ checks}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_host(\textcolor{keyword}{const}\ std::string\&\ host);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_port(\textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_serv\_name(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_client\_max\_body\_size(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_error\_pages(\textcolor{keyword}{const}\ std::map<int,\ std::string>\&\ errors);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_location\_list(\textcolor{keyword}{const}\ std::vector<LocationConfig>\&\ locations);}
+\DoxyCodeLine{00029\ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ LocationConfig\ checks}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_path(\textcolor{keyword}{const}\ std::string\&\ path);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_root(\textcolor{keyword}{const}\ std::string\&\ root);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_index(\textcolor{keyword}{const}\ std::string\&\ index);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_autoindex(\textcolor{keywordtype}{bool}\ autoindex);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_upload\_path(\textcolor{keyword}{const}\ std::string\&\ path);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_methods(\textcolor{keyword}{const}\ std::set<std::string>\&\ methods);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_proxy(\textcolor{keyword}{const}\ std::string\&\ proxy\_pass);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ check\_auth\_basic(\textcolor{keyword}{const}\ std::string\&\ auth\_basic);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check\_auth\_files(\textcolor{keyword}{const}\ std::string\&\ auth\_basic\_user\_file);}
+\DoxyCodeLine{00040\ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Helper\ to\ throw\ errors}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isNotConfigured(\textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ throw\_error(\textcolor{keyword}{const}\ std::string\&\ context,\ \textcolor{keyword}{const}\ std::string\&\ message);}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ verify\_location(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_location_config}{LocationConfig}}\&\ loc);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ verify\_pars(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_server_config}{ServerConfig}}\&\ config);}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

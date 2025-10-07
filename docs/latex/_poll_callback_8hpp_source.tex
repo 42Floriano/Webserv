@@ -1,0 +1,28 @@
+\doxysection{Poll\+Callback.\+hpp}
+\hypertarget{_poll_callback_8hpp_source}{}\label{_poll_callback_8hpp_source}\index{PollCallback/PollCallback.hpp@{PollCallback/PollCallback.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POLLCALLBACK\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ POLLCALLBACK\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ \ \ }\mbox{\hyperlink{class_poll_callback}{PollCallback}}\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ on(\textcolor{keywordtype}{short}\ pollevent);}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ fd(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLIN(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLPRI(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLOUT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLRDHUP(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLHUP(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLERR(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onPOLLNVAL(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \ \ \ \ \_get\_underlying\_fd(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

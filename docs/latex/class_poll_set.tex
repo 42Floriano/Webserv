@@ -1,0 +1,129 @@
+\doxysection{Poll\+Set Class Reference}
+\hypertarget{class_poll_set}{}\label{class_poll_set}\index{PollSet@{PollSet}}
+Inheritance diagram for Poll\+Set\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_poll_set}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_poll_set_ae65674902548a630d75eb9e774de0da7}\label{class_poll_set_ae65674902548a630d75eb9e774de0da7} 
+void {\bfseries register\+Callback} (short event, \mbox{\hyperlink{class_poll_callback}{Poll\+Callback}} \texorpdfstring{$\ast$}{*}cb)
+\item 
+\Hypertarget{class_poll_set_a8e848aadec0c7da2011d76f1a808e4e4}\label{class_poll_set_a8e848aadec0c7da2011d76f1a808e4e4} 
+void {\bfseries remove\+Callback} (short event, \mbox{\hyperlink{class_poll_callback}{Poll\+Callback}} \texorpdfstring{$\ast$}{*}cb)
+\item 
+\Hypertarget{class_poll_set_a2896667bc0686ee4bca28e11ff159e21}\label{class_poll_set_a2896667bc0686ee4bca28e11ff159e21} 
+void {\bfseries poll} (int timeout)
+\item 
+\Hypertarget{class_poll_set_a934326783961275d682688881e842070}\label{class_poll_set_a934326783961275d682688881e842070} 
+int {\bfseries fd} (size\+\_\+t index)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_simple_set}{Simple\+Set$<$ struct pollfd, 4096 $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_simple_set}{Simple\+Set}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_simple_set}{Simple\+Set}} \&rhs)
+\item 
+void {\bfseries add} (const struct pollfd \&item)
+\item 
+void {\bfseries remove} (size\+\_\+t index)
+\item 
+size\+\_\+t {\bfseries size} (void) const
+\item 
+struct pollfd \texorpdfstring{$\ast$}{*} {\bfseries ptr} (void) const
+\item 
+int {\bfseries index} (const struct pollfd \&item)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_poll_set_abe48c617479d5cb3506feda7e405e33f}\label{class_poll_set_abe48c617479d5cb3506feda7e405e33f} 
+static std\+::string {\bfseries event\+\_\+to\+\_\+string} (short event)
+\item 
+\Hypertarget{class_poll_set_a8ebac80b7b87fa486c1feed7bd056694}\label{class_poll_set_a8ebac80b7b87fa486c1feed7bd056694} 
+static std\+::string {\bfseries events\+\_\+to\+\_\+string} (short events)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_poll_set_a64683b982bf60da8572ad572bc15103f}\label{class_poll_set_a64683b982bf60da8572ad572bc15103f} 
+static const int {\bfseries event\+\_\+array\+\_\+size} = 4
+\item 
+static int \mbox{\hyperlink{class_poll_set_ab8884530644532fa31166c67ace2ace4}{event\+\_\+array}} \mbox{[}event\+\_\+array\+\_\+size\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_poll_set_a6ecaf72cd08c502510ac405288b239af}\label{class_poll_set_a6ecaf72cd08c502510ac405288b239af} 
+virtual void {\bfseries \+\_\+on\+Poll\+Error} (int errnum)
+\item 
+\Hypertarget{class_poll_set_af8e112de2f82aed99839fa4463292d3b}\label{class_poll_set_af8e112de2f82aed99839fa4463292d3b} 
+virtual void {\bfseries \+\_\+on\+Poll\+Timeout} (int timeout\+\_\+ms)
+\item 
+\Hypertarget{class_poll_set_a58528f3b7556bdc01655a2662b909d2d}\label{class_poll_set_a58528f3b7556bdc01655a2662b909d2d} 
+virtual void {\bfseries \+\_\+on\+Poll\+Success} (int n)
+\item 
+\Hypertarget{class_poll_set_a48f3c772a6a0f6391ce93a162f8882b9}\label{class_poll_set_a48f3c772a6a0f6391ce93a162f8882b9} 
+\mbox{\hyperlink{class_callback_d_b}{Callback\+DB}} \& {\bfseries callbacks} ()
+\item 
+\Hypertarget{class_poll_set_a57e4d47b814db74cad93bea0118ff39f}\label{class_poll_set_a57e4d47b814db74cad93bea0118ff39f} 
+void {\bfseries on\+Poll\+Error} (int errnum)
+\item 
+\Hypertarget{class_poll_set_a3ac1431f047d8af0eebf34eea3a66a65}\label{class_poll_set_a3ac1431f047d8af0eebf34eea3a66a65} 
+void {\bfseries on\+Poll\+Timeout} (int timeout\+\_\+ms)
+\item 
+\Hypertarget{class_poll_set_a10ad1790456b29ba1f77138ed0d252a5}\label{class_poll_set_a10ad1790456b29ba1f77138ed0d252a5} 
+void {\bfseries on\+Poll\+Success} (int n)
+\item 
+\Hypertarget{class_poll_set_a3b1eb96a233bda9d0386cd10be0adf75}\label{class_poll_set_a3b1eb96a233bda9d0386cd10be0adf75} 
+bool {\bfseries try\+\_\+exec} (int fd, short event, short revents)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_simple_set}{Simple\+Set$<$ struct pollfd, 4096 $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+struct pollfd {\bfseries \+\_\+data} \mbox{[}MAX\+\_\+\+SIZE\mbox{]}
+\item 
+size\+\_\+t {\bfseries \+\_\+size}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_simple_set}{Simple\+Set$<$ struct pollfd, 4096 $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t {\bfseries \+\_\+capacity}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_poll_set_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_poll_set_ab8884530644532fa31166c67ace2ace4}\index{PollSet@{PollSet}!event\_array@{event\_array}}
+\index{event\_array@{event\_array}!PollSet@{PollSet}}
+\doxysubsubsection{\texorpdfstring{event\_array}{event\_array}}
+{\footnotesize\ttfamily \label{class_poll_set_ab8884530644532fa31166c67ace2ace4} 
+int Poll\+Set\+::event\+\_\+array\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ POLLERR,}
+\DoxyCodeLine{\ \ \ \ POLLHUP,}
+\DoxyCodeLine{\ \ \ \ POLLIN,}
+\DoxyCodeLine{\ \ \ \ POLLOUT,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Poll\+Set/Poll\+Set.\+hpp\item 
+Poll\+Set/constants.\+cpp\item 
+Poll\+Set/getters.\+cpp\item 
+Poll\+Set/on\+Event.\+cpp\item 
+Poll\+Set/on\+Event\+\_\+internals.\+cpp\item 
+Poll\+Set/orthodox.\+cpp\item 
+Poll\+Set/poll.\+cpp\item 
+Poll\+Set/setters.\+cpp\item 
+Poll\+Set/utils.\+cpp\end{DoxyCompactItemize}

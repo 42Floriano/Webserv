@@ -1,0 +1,42 @@
+\doxysection{Address\+\_\+storage.\+hpp}
+\hypertarget{_address__storage_8hpp_source}{}\label{_address__storage_8hpp_source}\index{Address/Address\_storage.hpp@{Address/Address\_storage.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ADDRESS\_STORAGE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ ADDRESS\_STORAGE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#\ include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#\ include\ <sys/socket.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_address__storage}{Address\_storage}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ socklen\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_storage\_size;}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_storage\ \_storage;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \_hoststr;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \_portstr;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \_unixpath;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{/*\ getters\ */}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ family(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ u\_int32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ host(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ u\_int16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ port(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *path(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \ \ \ \ \&hoststr(\textcolor{keywordtype}{void})\ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \ \ \ \ \&portstr(\textcolor{keywordtype}{void})\ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ socklen\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ len(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\ \ \ \ \ \ \ \ \ *ptr(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_storage\ *storage\_ptr(\textcolor{keywordtype}{void})\ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{/*\ setters\ */}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ configure(\textcolor{keyword}{const}\ std::string\ \&host,\ \textcolor{keyword}{const}\ std::string\ \&port);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ configure(\textcolor{keyword}{const}\ std::string\ \&host,\ u\_int16\_t\ port);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ configure(\textcolor{keyword}{struct}\ sockaddr\ *addr,\ socklen\_t\ addrlen);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getaddrinfo(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setStorageSize(socklen\_t\ size);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

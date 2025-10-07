@@ -1,0 +1,40 @@
+\doxysection{Client.\+hpp}
+\hypertarget{_client_8hpp_source}{}\label{_client_8hpp_source}\index{Client/Client.hpp@{Client/Client.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CLIENT\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ CLIENT\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}PollSock.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Request.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Response.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }Client:\ \textcolor{keyword}{public}\ PollSock\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ \ \ buffer\_size;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Client(\mbox{\hyperlink{class_poll_set}{PollSet}}\ \&pset,\ \textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_address}{Address}}\ *addr);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::string\ rbuf;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::string\ wbuf;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onData(\textcolor{keyword}{const}\ std::string\ \&rbuf);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \_onWritable(std::string\ \&wbuf);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onData(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onWritable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onDisconnect();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onError();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ onReqFinish();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

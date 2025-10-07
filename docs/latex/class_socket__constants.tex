@@ -1,0 +1,118 @@
+\doxysection{Socket\+\_\+constants Class Reference}
+\hypertarget{class_socket__constants}{}\label{class_socket__constants}\index{Socket\_constants@{Socket\_constants}}
+Inheritance diagram for Socket\+\_\+constants\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=8.000000cm]{class_socket__constants}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca}\label{class_socket__constants_a4f9c0a0ded9ce96f44a9318dd4e0daca} 
+enum \{ {\bfseries off}
+, {\bfseries bound}
+, {\bfseries listening}
+, {\bfseries connected}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a65905e7a53b83d2192af340f908955e8}\label{class_socket__constants_a65905e7a53b83d2192af340f908955e8} 
+enum \{ {\bfseries unix}
+, {\bfseries ip\+V4}
+, {\bfseries ip\+V6}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388}\label{class_socket__constants_a0c6b4f62a6b2316a7ede11ec38ff9388} 
+enum \{ {\bfseries stream}
+, {\bfseries datagram}
+ \}
+\item 
+\Hypertarget{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77}\label{class_socket__constants_a4d6ef005f93ea890aeedf880c95dbb77} 
+enum \{ \newline
+{\bfseries non\+\_\+block}
+, {\bfseries peek\+\_\+only}
+, {\bfseries truncate}
+, {\bfseries error\+\_\+queue}
+, \newline
+{\bfseries out\+\_\+of\+\_\+bound}
+, {\bfseries close\+\_\+on\+\_\+exec}
+, {\bfseries wait\+\_\+all}
+, {\bfseries confirm}
+, \newline
+{\bfseries do\+\_\+not\+\_\+route}
+, {\bfseries end\+\_\+of\+\_\+record}
+, {\bfseries more}
+, {\bfseries no\+\_\+signal}
+, \newline
+{\bfseries fast\+\_\+open}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_socket__constants_ac152dc2e20dca54d6e9d965e1ad6c462}\label{class_socket__constants_ac152dc2e20dca54d6e9d965e1ad6c462} 
+static const int {\bfseries DEFAULT\+\_\+\+BACKLOG} = 4096
+\item 
+static int \mbox{\hyperlink{class_socket__constants_a80dc8a487a295d9a8733d9a6baadfda9}{flags}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_aa6e0f301146dd2bf009bea719ffccd5b}{domains}} \mbox{[}$\,$\mbox{]}
+\item 
+static int \mbox{\hyperlink{class_socket__constants_ac182306e7fc16d1ffb2ebdce007ddd0c}{types}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_socket__constants_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_socket__constants_aa6e0f301146dd2bf009bea719ffccd5b}\index{Socket\_constants@{Socket\_constants}!domains@{domains}}
+\index{domains@{domains}!Socket\_constants@{Socket\_constants}}
+\doxysubsubsection{\texorpdfstring{domains}{domains}}
+{\footnotesize\ttfamily \label{class_socket__constants_aa6e0f301146dd2bf009bea719ffccd5b} 
+int Socket\+\_\+constants\+::domains\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [unix]\ =\ AF\_UNIX,}
+\DoxyCodeLine{\ \ \ \ [ipV4]\ =\ AF\_INET,}
+\DoxyCodeLine{\ \ \ \ [ipV6]\ =\ AF\_INET6}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_socket__constants_a80dc8a487a295d9a8733d9a6baadfda9}\index{Socket\_constants@{Socket\_constants}!flags@{flags}}
+\index{flags@{flags}!Socket\_constants@{Socket\_constants}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily \label{class_socket__constants_a80dc8a487a295d9a8733d9a6baadfda9} 
+int Socket\+\_\+constants\+::flags\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [non\_block]\ =\ MSG\_DONTWAIT,}
+\DoxyCodeLine{\ \ \ \ [peek\_only]\ =\ MSG\_PEEK,}
+\DoxyCodeLine{\ \ \ \ [truncate]\ =\ MSG\_TRUNC,}
+\DoxyCodeLine{\ \ \ \ [error\_queue]\ =\ MSG\_ERRQUEUE,}
+\DoxyCodeLine{\ \ \ \ [out\_of\_bound]\ =\ MSG\_OOB,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{class_socket__constants_ac182306e7fc16d1ffb2ebdce007ddd0c}\index{Socket\_constants@{Socket\_constants}!types@{types}}
+\index{types@{types}!Socket\_constants@{Socket\_constants}}
+\doxysubsubsection{\texorpdfstring{types}{types}}
+{\footnotesize\ttfamily \label{class_socket__constants_ac182306e7fc16d1ffb2ebdce007ddd0c} 
+int Socket\+\_\+constants\+::types\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ [stream]\ =\ SOCK\_STREAM,}
+\DoxyCodeLine{\ \ \ \ [datagram]\ =\ SOCK\_DGRAM}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Socket/includes/Socket\+\_\+constants.\+hpp\item 
+Socket/constants.\+cpp\end{DoxyCompactItemize}

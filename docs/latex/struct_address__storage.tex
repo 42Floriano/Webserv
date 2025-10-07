@@ -1,0 +1,65 @@
+\doxysection{Address\+\_\+storage Struct Reference}
+\hypertarget{struct_address__storage}{}\label{struct_address__storage}\index{Address\_storage@{Address\_storage}}
+Inheritance diagram for Address\+\_\+storage\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_address__storage}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_address__storage_a6b3ef1c7cc7806ea57399a0a468d0604}\label{struct_address__storage_a6b3ef1c7cc7806ea57399a0a468d0604} 
+int {\bfseries family} (void) const
+\item 
+\Hypertarget{struct_address__storage_a54171bbcb619e39cd79bac725011ebbc}\label{struct_address__storage_a54171bbcb619e39cd79bac725011ebbc} 
+u\+\_\+int32\+\_\+t {\bfseries host} (void) const
+\item 
+\Hypertarget{struct_address__storage_af25f2199808a22791bc59ed0b0e75f54}\label{struct_address__storage_af25f2199808a22791bc59ed0b0e75f54} 
+u\+\_\+int16\+\_\+t {\bfseries port} (void) const
+\item 
+\Hypertarget{struct_address__storage_a4b14fdfb732df85c31473f56b5a4c198}\label{struct_address__storage_a4b14fdfb732df85c31473f56b5a4c198} 
+char \texorpdfstring{$\ast$}{*} {\bfseries path} (void) const
+\item 
+\Hypertarget{struct_address__storage_a38ae3b605fb2a644745b97cb94066b26}\label{struct_address__storage_a38ae3b605fb2a644745b97cb94066b26} 
+const std\+::string \& {\bfseries hoststr} (void) const
+\item 
+\Hypertarget{struct_address__storage_aff2cf53657efb946f0fe3fcd8732567f}\label{struct_address__storage_aff2cf53657efb946f0fe3fcd8732567f} 
+const std\+::string \& {\bfseries portstr} (void) const
+\item 
+\Hypertarget{struct_address__storage_ae3c5fb1743b09b8dd21879722bc96f91}\label{struct_address__storage_ae3c5fb1743b09b8dd21879722bc96f91} 
+socklen\+\_\+t {\bfseries len} (void) const
+\item 
+\Hypertarget{struct_address__storage_ac0ce02b44ce6bf715446b11e794b55b3}\label{struct_address__storage_ac0ce02b44ce6bf715446b11e794b55b3} 
+struct sockaddr \texorpdfstring{$\ast$}{*} {\bfseries ptr} (void) const
+\item 
+\Hypertarget{struct_address__storage_a51874dcc41f30dfb2d6058fd2a356053}\label{struct_address__storage_a51874dcc41f30dfb2d6058fd2a356053} 
+struct sockaddr\+\_\+storage \texorpdfstring{$\ast$}{*} {\bfseries storage\+\_\+ptr} (void) const
+\item 
+\Hypertarget{struct_address__storage_a7cb287ace671ebcb7d72aca670b95c12}\label{struct_address__storage_a7cb287ace671ebcb7d72aca670b95c12} 
+void {\bfseries configure} (const std\+::string \&host, const std\+::string \&port)
+\item 
+\Hypertarget{struct_address__storage_acd4e1f7cc2b0edf80686a0a815b1b5dc}\label{struct_address__storage_acd4e1f7cc2b0edf80686a0a815b1b5dc} 
+void {\bfseries configure} (const std\+::string \&host, u\+\_\+int16\+\_\+t port)
+\item 
+\Hypertarget{struct_address__storage_ad8b18ed9248b1344c75a083ffd943c98}\label{struct_address__storage_ad8b18ed9248b1344c75a083ffd943c98} 
+void {\bfseries configure} (struct sockaddr \texorpdfstring{$\ast$}{*}addr, socklen\+\_\+t addrlen)
+\item 
+\Hypertarget{struct_address__storage_a21e1ad0f9a86e5b8273f4e3a5749d308}\label{struct_address__storage_a21e1ad0f9a86e5b8273f4e3a5749d308} 
+void {\bfseries getaddrinfo} (void)
+\item 
+\Hypertarget{struct_address__storage_a6533910fb20d56c2a6a938e9273e2422}\label{struct_address__storage_a6533910fb20d56c2a6a938e9273e2422} 
+void {\bfseries set\+Storage\+Size} (socklen\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Address/Address\+\_\+storage.\+hpp\item 
+Address/configure.\+cpp\item 
+Address/family.\+cpp\item 
+Address/getaddrinfo.\+cpp\item 
+Address/host.\+cpp\item 
+Address/len.\+cpp\item 
+Address/port.\+cpp\item 
+Address/ptr.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,72 @@
+\doxysection{Http\+Message.\+hpp}
+\hypertarget{_http_message_8hpp_source}{}\label{_http_message_8hpp_source}\index{HttpMessage/HttpMessage.hpp@{HttpMessage/HttpMessage.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HTTPMESSAGE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ HTTPMESSAGE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Socket.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}HttpHeaders.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ CRLF\ "{}\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }HttpMessage\ :\ \textcolor{keyword}{public}\ std::stringstream\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \textcolor{comment}{/*\ parsing\ phases\ */}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ reading\_first\_line,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ reading\_header,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ reading\_body,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ reading\_chunk\_size,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ reading\_chunk\_data,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ reading\_trailers,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ done,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ HttpMessage(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \string~HttpMessage(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \_buffer;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \_parsing\_phase;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \_chunked;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \_first\_line[3];}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_http_headers}{HttpHeaders}}\ \ \ \ \ \ \ \ \ \ \_headers;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ \ \ \_body;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_http_headers}{HttpHeaders}}\ \ \ \ \ \ \ \ \ \ \_trailers;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ decode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ encode\_first\_line(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ encode\_headers(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ encode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ Parsing}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ getline(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ getchunk(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_chunk\_size(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ parse(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_first\_line(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_headers(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ parse\_trailers(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ phase(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ setPhase(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//headers}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::map<std::string,\ std::string>\ \ \ \ \&headers(\textcolor{keywordtype}{void})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&header(\textcolor{keyword}{const}\ std::string\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\doxysection{Server\+Config.\+class.\+hpp}
+\hypertarget{_server_config_8class_8hpp_source}{}\label{_server_config_8class_8hpp_source}\index{ServerConfig/ServerConfig.class.hpp@{ServerConfig/ServerConfig.class.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFIGFILE\_CLASS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFIGFILE\_CLASS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}LocationConfig.class.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }ServerConfig\{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::string\ host;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ port;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::string\ server\_name;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::map<int,\ std::string>\ error\_pages;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ client\_max\_body\_size;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ std::vector<LocationConfig>\ locations;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ ServerConfig();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ ServerConfig(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keywordtype}{int}\ port,\ \textcolor{keyword}{const}\ std::string\ \&server\_name,\ \textcolor{keywordtype}{size\_t}\ client\_max\_body\_size);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ServerConfig(\textcolor{keyword}{const}\ ServerConfig\&\ other);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ ServerConfig\&\ operator=(\textcolor{keyword}{const}\ ServerConfig\&\ rhs);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \string~ServerConfig();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sayHell();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ std::string\ getHost()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getPort()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ std::string\ getServerName()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ std::map<int,\ std::string>\ getErrorPages()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ getClientMaxBodySize()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ std::vector<LocationConfig>\ getLocations()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setHost(\textcolor{keyword}{const}\ std::string\&\ host);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPort(\textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setServerName(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setErrorPages(\textcolor{keyword}{const}\ std::map<int,\ std::string>\&\ errors);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setClientMaxBodySize(\textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setLocations(\textcolor{keyword}{const}\ std::vector<LocationConfig>\&\ locs);}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

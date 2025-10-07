@@ -1,0 +1,27 @@
+\doxysection{Directive.\+hpp}
+\hypertarget{_directive_8hpp_source}{}\label{_directive_8hpp_source}\index{ServerConfig/NewParser/Directive.hpp@{ServerConfig/NewParser/Directive.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DIRECTIVE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DIRECTIVE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_directive}{Directive}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ std::string\ command;}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \ \ \ args;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Directive();}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Directive(std::istream\&\ input);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Directive(\textcolor{keyword}{const}\ std::string\&\ cmd,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ args);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Directive(\textcolor{keyword}{const}\ Directive\&\ other);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Directive\&\ operator=(\textcolor{keyword}{const}\ Directive\ \&rhs);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Directive();}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

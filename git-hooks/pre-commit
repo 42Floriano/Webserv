@@ -1,0 +1,24 @@
+#! /bin/bash
+
+cd src;
+
+# dry run astyle and greps 'Formatted' files
+astyle -r \
+--style=allman \
+--indent=spaces=8 \
+--align-pointer=name \
+--align-reference=type \
+--max-code-length=80 \
+--pad-comma \
+--pad-include \
+--dry-run \
+"./*.cpp" "./*.hpp" "./*.tpp" | grep Formatted &> /dev/null
+
+# fail to commit if grep 'Formatted' is succesful
+if [ $? -eq 0 ]; then
+	echo "The files ain't pretty enough. Make them pretty."
+	exit 1;
+else
+	echo "Files look pretty. Good Job."
+	exit 0;
+fi

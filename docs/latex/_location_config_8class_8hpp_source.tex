@@ -1,0 +1,68 @@
+\doxysection{Location\+Config.\+class.\+hpp}
+\hypertarget{_location_config_8class_8hpp_source}{}\label{_location_config_8class_8hpp_source}\index{ServerConfig/LocationConfig.class.hpp@{ServerConfig/LocationConfig.class.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOCATIONCONFIG\_CLASS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOCATIONCONFIG\_CLASS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }LocationConfig\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ LocationConfig();}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ LocationConfig(const\ std::string\&\ path,}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ std::string\&\ root,}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ std::string\&\ index,}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bool\ autoindex);}}
+\DoxyCodeLine{00014\ \ \ \ \ LocationConfig(\textcolor{keyword}{const}\ LocationConfig\&\ other);}
+\DoxyCodeLine{00015\ \ \ \ \ LocationConfig\&\ operator=(\textcolor{keyword}{const}\ LocationConfig\&\ other);}
+\DoxyCodeLine{00016\ \ \ \ \ \string~LocationConfig();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ getPath()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ getRoot()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ getIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ getAutoindex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ std::set<std::string>\ getMethods()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ getUploadPath()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ getCgiExtension()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ getProxyPass()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ std::string\ getAuthBasic()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \ \ \ \ std::string\ getAuthBasicUserFile()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ setPath(\textcolor{keyword}{const}\ std::string\&\ path);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ setRoot(\textcolor{keyword}{const}\ std::string\&\ root);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ setIndex(\textcolor{keyword}{const}\ std::string\&\ index);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ setAutoindex(\textcolor{keywordtype}{bool}\ autoindex);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ setMethods(\textcolor{keyword}{const}\ std::set<std::string>\&\ methods);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ setUploadPath(\textcolor{keyword}{const}\ std::string\&\ path);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ setCgiExtension(\textcolor{keyword}{const}\ std::string\&\ ext);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ setProxyPass(\textcolor{keyword}{const}\ std::string\&\ pass);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ setAuthBasic(\textcolor{keyword}{const}\ std::string\&\ auth);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ setAuthBasicUserFile(\textcolor{keyword}{const}\ std::string\&\ file);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ LocationConfig\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_location_config_1_1_location_sort}{LocationSort}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ operator()(\textcolor{keyword}{const}\ LocationConfig\ \&a,\ \textcolor{keyword}{const}\ LocationConfig\ \&b)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a.getPath()\ >\ b.getPath();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::string\ path;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::string\ root;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::string\ index;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ autoindex;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::set<std::string>\ methods;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ std::string\ upload\_path;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::string\ cgi\_extension;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::string\ proxy\_pass;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ std::string\ auth\_basic;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::string\ auth\_basic\_user\_file;}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

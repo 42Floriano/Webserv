@@ -1,0 +1,91 @@
+\doxysection{Address Class Reference}
+\hypertarget{class_address}{}\label{class_address}\index{Address@{Address}}
+Inheritance diagram for Address\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_address}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_address_acc8946e5d32f035070fcab2460089b6d}\label{class_address_acc8946e5d32f035070fcab2460089b6d} 
+{\bfseries Address} (struct sockaddr \texorpdfstring{$\ast$}{*}addr, socklen\+\_\+t addrlen)
+\item 
+\Hypertarget{class_address_af421f6b004a4697b58524da6f824cc29}\label{class_address_af421f6b004a4697b58524da6f824cc29} 
+{\bfseries Address} (std\+::string host, std\+::string service)
+\item 
+\Hypertarget{class_address_a62b42652f2137ff5c81587448e8c2b1e}\label{class_address_a62b42652f2137ff5c81587448e8c2b1e} 
+{\bfseries Address} (std\+::string host, uint16\+\_\+t port)
+\item 
+\Hypertarget{class_address_a572b70a1f062ff10af952979e4f0f464}\label{class_address_a572b70a1f062ff10af952979e4f0f464} 
+{\bfseries Address} (uint32\+\_\+t host, uint16\+\_\+t port)
+\item 
+\Hypertarget{class_address_a572492106f4b2640c14278d978f15b31}\label{class_address_a572492106f4b2640c14278d978f15b31} 
+{\bfseries Address} (std\+::string path)
+\item 
+\Hypertarget{class_address_a78d1d86f0e5a6924ca7f218041bd0111}\label{class_address_a78d1d86f0e5a6924ca7f218041bd0111} 
+{\bfseries Address} (const \mbox{\hyperlink{class_address}{Address}} \&other)
+\item 
+\Hypertarget{class_address_ae2be8115b25aa68a637865474ccd841f}\label{class_address_ae2be8115b25aa68a637865474ccd841f} 
+\mbox{\hyperlink{class_address}{Address}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_address}{Address}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{struct_address__storage}{Address\+\_\+storage}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries family} (void) const
+\item 
+u\+\_\+int32\+\_\+t {\bfseries host} (void) const
+\item 
+u\+\_\+int16\+\_\+t {\bfseries port} (void) const
+\item 
+char \texorpdfstring{$\ast$}{*} {\bfseries path} (void) const
+\item 
+const std\+::string \& {\bfseries hoststr} (void) const
+\item 
+const std\+::string \& {\bfseries portstr} (void) const
+\item 
+socklen\+\_\+t {\bfseries len} (void) const
+\item 
+struct sockaddr \texorpdfstring{$\ast$}{*} {\bfseries ptr} (void) const
+\item 
+struct sockaddr\+\_\+storage \texorpdfstring{$\ast$}{*} {\bfseries storage\+\_\+ptr} (void) const
+\item 
+void {\bfseries configure} (const std\+::string \&host, const std\+::string \&port)
+\item 
+void {\bfseries configure} (const std\+::string \&host, u\+\_\+int16\+\_\+t port)
+\item 
+void {\bfseries configure} (struct sockaddr \texorpdfstring{$\ast$}{*}addr, socklen\+\_\+t addrlen)
+\item 
+void {\bfseries getaddrinfo} (void)
+\item 
+void {\bfseries set\+Storage\+Size} (socklen\+\_\+t size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_address__constants}{Address\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_address__constants_a1ca0d5dc555938fd33dfc87c3ec1c1f1}\label{class_address__constants_a1ca0d5dc555938fd33dfc87c3ec1c1f1} 
+enum \{ {\bfseries ip\+V4}
+, {\bfseries ip\+V6}
+, {\bfseries unix}
+, {\bfseries nbr\+\_\+of\+\_\+address\+\_\+families}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_address__describe}{Address\+\_\+describe}}}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{class_address__describe_a122d5499c0fbb1c6bb30d1dac3f368ee}{describe\+\_\+family}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_address__constants}{Address\+\_\+constants}}}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_address__constants_a10587a5db8183c6427dbc6b0cd945043}{families}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Address/Address.\+hpp\item 
+Address/constructors.\+cpp\item 
+Address/orthodox.\+cpp\end{DoxyCompactItemize}

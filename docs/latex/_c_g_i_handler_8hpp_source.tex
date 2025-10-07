@@ -1,0 +1,36 @@
+\doxysection{CGIHandler.\+hpp}
+\hypertarget{_c_g_i_handler_8hpp_source}{}\label{_c_g_i_handler_8hpp_source}\index{CGIHandler/CGIHandler.hpp@{CGIHandler/CGIHandler.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CGIHANDLER\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#\ define\ CGIHANDLER\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }CGIHandler\ \{}
+\DoxyCodeLine{00005\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00006\ \ \ \ \ std::string\ \_scriptPath;}
+\DoxyCodeLine{00007\ \ \ \ \ std::string\ \_cgiExec;}
+\DoxyCodeLine{00008\ \ \ \ \ std::string\ \_CGIoutput;}
+\DoxyCodeLine{00009\ \ \ \ \ std::map<std::string,\ std::string>\ \_envp;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ **\_envArray;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \_pipefd[2];}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ prepareENV(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_request}{Request}}\&\ request,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_config}{Config}}\&\ config);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ prepareARGS(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_config}{Config}}\&\ config);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ CGIHandler(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_request}{Request}}\&\ request,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_config}{Config}}\&\ config);}
+\DoxyCodeLine{00018\ \ \ \ \ \string~CGIHandler();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ isCGI();}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ execute();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ setCGIoutput(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ freeArray(\textcolor{keywordtype}{char}\ **array);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{char}**\ \ \ \ \ \ setEnvinArray();}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ getCgiOut();}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ std::ostream\ \ \ \ \&operator<<(std::ostream\ \&os,\ \mbox{\hyperlink{class_c_g_i_handler}{CGIHandler}}\ \&cgi);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,112 @@
+\doxysection{Response Class Reference}
+\hypertarget{class_response}{}\label{class_response}\index{Response@{Response}}
+Inheritance diagram for Response\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_response}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_response_a0dd6e5e1bf66fab15a8864e6b564666a}\label{class_response_a0dd6e5e1bf66fab15a8864e6b564666a} 
+const std\+::map$<$ int, std\+::string $>$ \& {\bfseries get\+Status\+Code} (void) const
+\item 
+\Hypertarget{class_response_ae743eb3e40d1788bf1eac788eff7552f}\label{class_response_ae743eb3e40d1788bf1eac788eff7552f} 
+const std\+::string \& {\bfseries response\+\_\+version} (void) const
+\item 
+\Hypertarget{class_response_a6246753caa13be5a82e43dbb8d8af61d}\label{class_response_a6246753caa13be5a82e43dbb8d8af61d} 
+const std\+::string \& {\bfseries status\+\_\+code} (void) const
+\item 
+\Hypertarget{class_response_afe2acb0f50647994f00f6ea1d79da5dc}\label{class_response_afe2acb0f50647994f00f6ea1d79da5dc} 
+const std\+::string \& {\bfseries status\+\_\+msg} (void) const
+\item 
+\Hypertarget{class_response_aa54e4fda42983417549e835540db191e}\label{class_response_aa54e4fda42983417549e835540db191e} 
+void {\bfseries set\+Response} (std\+::string)
+\item 
+\Hypertarget{class_response_ad5daaf612b9f32a38cbda9af556b6ca2}\label{class_response_ad5daaf612b9f32a38cbda9af556b6ca2} 
+std\+::string {\bfseries set\+Mime} (std\+::string path)
+\item 
+\Hypertarget{class_response_ad00124571331dd36926bfbeacb68e5f1}\label{class_response_ad00124571331dd36926bfbeacb68e5f1} 
+void {\bfseries handle\+Response\+Type} (\mbox{\hyperlink{class_socket}{Socket}} \&socket)
+\item 
+\Hypertarget{class_response_a8a7a2ec8880639986944ee4962178101}\label{class_response_a8a7a2ec8880639986944ee4962178101} 
+void {\bfseries send\+To} (\mbox{\hyperlink{class_socket}{Socket}} \&socket) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries decode} (void)
+\item 
+void {\bfseries encode\+\_\+first\+\_\+line} (void)
+\item 
+void {\bfseries encode\+\_\+headers} (void)
+\item 
+void {\bfseries encode} (void)
+\item 
+bool {\bfseries getline} (void)
+\item 
+bool {\bfseries getchunk} (void)
+\item 
+void {\bfseries parse\+\_\+chunk\+\_\+size} (void)
+\item 
+bool {\bfseries parse} (void)
+\item 
+void {\bfseries parse\+\_\+first\+\_\+line} (void)
+\item 
+void {\bfseries parse\+\_\+headers} (void)
+\item 
+void {\bfseries parse\+\_\+trailers} (void)
+\item 
+int {\bfseries phase} (void) const
+\item 
+void {\bfseries set\+Phase} (int n)
+\item 
+const std\+::map$<$ std\+::string, std\+::string $>$ \& {\bfseries headers} (void) const
+\item 
+const std\+::string \& {\bfseries header} (const std\+::string \&key) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_response_aa6fb2791d702003f10b9e0b3a1a0666b}\label{class_response_aa6fb2791d702003f10b9e0b3a1a0666b} 
+bool {\bfseries \+\_\+is\+\_\+set}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_http_message_ae480a953f4aa7bdee0c3a919383a1384}\label{class_http_message_ae480a953f4aa7bdee0c3a919383a1384} 
+enum \{ \newline
+{\bfseries reading\+\_\+first\+\_\+line}
+, {\bfseries reading\+\_\+header}
+, {\bfseries reading\+\_\+body}
+, {\bfseries reading\+\_\+chunk\+\_\+size}
+, \newline
+{\bfseries reading\+\_\+chunk\+\_\+data}
+, {\bfseries reading\+\_\+trailers}
+, {\bfseries done}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_http_message}{Http\+Message}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries \+\_\+first\+\_\+line} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+headers}
+\item 
+std\+::stringstream {\bfseries \+\_\+body}
+\item 
+\mbox{\hyperlink{class_http_headers}{Http\+Headers}} {\bfseries \+\_\+trailers}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Response/Response.\+hpp\item 
+Response/constructors.\+cpp\item 
+Response/getters.\+cpp\item 
+Response/send/handle\+Response\+Type.\+cpp\item 
+Response/send/send\+To.\+cpp\item 
+Response/set\+Mime.\+cpp\item 
+Response/set\+Response.\+cpp\end{DoxyCompactItemize}
