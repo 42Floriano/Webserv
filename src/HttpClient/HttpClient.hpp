@@ -19,30 +19,23 @@
 # define HTTPCLIENT_HPP
 
 #include "Client.hpp"
-#include "ResponseHandler.hpp"
 
 class HttpClient: public Client
 {
 
 public:
-        HttpClient(PollSet &pset, int fd, Address *addr, ConfigItem &server_cfg);
-        ~HttpClient(void);
+        HttpClient(PollSet &pset, int fd, Address *addr);
 
 protected:
-        void			onData();
-        void			onWritable();
-        void			on_nothing_to_write(void);
-        virtual void	handleRequest(void);
+        void			on_data_callback();
+        void			_prepare_chunk();
+
+        virtual bool	handleResponse(void) = 0;
 
 protected:
-        Request			incoming;
-        Response		outgoing;
-        ResponseHandler _handler;
-
-public:
-        Request&	req(void);
-        Response&	res(void);
-        bool		handled;
+        Request			req;
+        Response		res;
+        bool			handled;
 };
 
 std::ostream& operator<<(std::ostream &os, const HttpClient &client);

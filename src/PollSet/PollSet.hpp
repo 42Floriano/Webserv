@@ -28,6 +28,7 @@
 #include <sstream>
 #include <unistd.h>
 
+#include <set>
 #include <sys/types.h>
 #include <poll.h>
 
@@ -52,52 +53,21 @@ class	PollSet
 private:
         CallbackDB				_callbacks; /* fd->ev->cbvec */
         SimpleSet<pollfd, 4096> _pollfdset;
+        std::set<Callback>		_garbage;
 
 public:
         PollSet(void);
         ~PollSet(void);
 
-        // Inserts callback `cb` in the underlying map for the given
-        // `fd` and `event`
-        void			registerCallback(int fd, short event, PollCallback *cb);
-
         // Inserts callback `cb` on `event` and deduces the `fd`
         // directly from `cb`
         void			registerCallback(short event, PollCallback *cb);
-
-        // Inserts callback `cb` on all events and deduces the `fd`
-        // directly from `cb`.
-        void			registerCallback(PollCallback *cb);
-
-        // Removes callback `cb`, on `event` for the given `fd`.
-        void			removeCallback(int fd, short event, PollCallback *cb);
 
         // Removes callback `cb`, on `event`, deduces the fd from cb
         void			removeCallback(short event, PollCallback *cb);
 
         // Removes callback `cb`, on all events, deduce the fd from cb`
         void			removeCallback(PollCallback *cb);
-
-        // Like removeCallback(cb) but it also destroies the callback.
-        void			destroyCallback(PollCallback *cb);
-
-        // Removes all callbacks on `event` on `fd`
-        void			removeCallbacks(int fd, short event);
-
-        // Removes all callbacks on all events on `fd`;
-        void			removeCallbacks(int fd);
-
-        // Removes all callbacks on all events on `fd`;
-        void                    removeCallbacks(void);
-
-        // Like removeCallbacks but also destroies all callback objects
-        void			destroyCallbacks(int fd);
-
-        // Like `destoryCallbacks` but also closes the `fd`.
-        void			close(int fd);
-
-        // Like `close` but deduces the `fd` from `cb`.
-        void			disconnect(PollCallback *cb);
 
         // Polls the events on the fds and triggers the callbacks
         void			poll(int timeout);
@@ -113,6 +83,10 @@ public:
         void			print_events(std::ostream &os);
         int				fd(ssize_t index) const;
         bool			no_callback_left(int fd, short event) const;
+        void			populate_pollset(void);
+        void			empty_pollset(void);
+        void			delete_callback(Callback cb);
+        void			cleanup_garbage(void);
 };
 
 #endif

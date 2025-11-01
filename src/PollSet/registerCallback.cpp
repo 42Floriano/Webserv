@@ -16,17 +16,9 @@
 */
 
 #include "PollSet.hpp"
+#include "PollEvents.hpp"
 
 void	PollSet::registerCallback(short event, PollCallback *cb)
 {
-
-        ssize_t	index = this->index(cb);
-        if (index == -1)
-                this->_pollfdset.add((pollfd)
-        {
-                cb->fd(), event, 0
-        });
-        else
-                this->_pollfdset.ptr()[index].events |= event;
         this->_callbacks.on(event, cb);
 }

@@ -43,18 +43,18 @@ Url::Url(const std::string &url):
         query(Url::get_query(url)),
         fragment(Url::get_fragment(url))
 {
-        console::debug << "Creating url object from " << url << std::endl;
         this->print(console::debug);
 }
 
 void	Url::print(std::ostream &os) const
 {
 
-        os << "Url Object:" << std::endl;
-        os << "> protocol: " << protocol << std::endl;
-        os << "> hier: " << hier << std::endl;
-        os << "> query: " << query << std::endl;
-        os << "> fragment: " << fragment << std::endl;
+        os << "Url {" << std::endl;
+        os << "\tprotocol: \"" << protocol << "\"," << std::endl;
+        os << "\thier: \"" << hier << "\"," << std::endl;
+        os << "\tquery: \"" << query << "\"," << std::endl;
+        os << "\tfragment: \"" << fragment << "\"" << std::endl;
+        os << "};" << std::endl;
         os << std::endl;
 }
 

@@ -17,7 +17,7 @@
 
 #include "ResponseHandler.hpp"
 
-bool	ResponseHandler::isRedirection(void)
+bool	ResponseHandler::isRedirection(void) const
 {
         ConfigItem &loc = this->getLocation();
         try
@@ -30,7 +30,6 @@ bool	ResponseHandler::isRedirection(void)
         }
         catch (const std::exception &e)
         {
-                console::debug << "return field not found" << std::endl;
                 return false;
         }
 }

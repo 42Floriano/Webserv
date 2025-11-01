@@ -20,9 +20,9 @@
 void	PollSock::onDisconnect(void)
 {
         console::error << "PollSocket-Disconnecting" << std::endl;
-        this->_pset.removeCallback(POLLIN, this);
-        this->_pset.removeCallback(POLLOUT, this);
-        this->_pset.removeCallback(POLLERR, this);
-        this->_pset.removeCallback(POLLHUP, this);
+        this->pset.removeCallback(POLLIN, this);
+        this->pset.removeCallback(POLLOUT, this);
+        this->pset.removeCallback(POLLERR, this);
+        this->pset.removeCallback(POLLHUP, this);
         this->Socket::close();
 }

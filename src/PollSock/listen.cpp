@@ -32,5 +32,5 @@ void PollSock::listen(int backlog)
 {
         this->_reserved_fd = ::dup(this->fd());
         this->Socket::listen(backlog);
-        this->_pset.registerCallback(POLLIN, this);
+        this->pset.registerCallback(POLLIN, this);
 }

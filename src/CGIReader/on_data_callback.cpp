@@ -17,6 +17,7 @@
 
 #include "HttpMessage.hpp"
 #include "CGIReader.hpp"
+#include <stdlib.h>
 
 void	CGIReader::on_data_callback(void)
 {
@@ -24,6 +25,7 @@ void	CGIReader::on_data_callback(void)
         this->_buffer.clear();
         console::debug << "Avil in CGIHandler: " << this->_buffer.rdbuf()->in_avail() <<
                        std::endl;
+
         console::debug << "CGIReader::on_data_callback() START" << std::endl;
         ++console::debug;
         if (!this->headers->is_sealed() && this->headers_parsed == false)
@@ -35,6 +37,7 @@ void	CGIReader::on_data_callback(void)
                         try
                         {
                                 this->headers->parse(this->line_buffer);
+                                this->hbl += this->line_buffer.size() + 2;
                         }
                         catch (const std::exception &err)
                         {
@@ -51,10 +54,4 @@ void	CGIReader::on_data_callback(void)
                         this->headers_parsed = true;
                 }
         }
-        else
-                console::debug << "No headers to parse" << std::endl;
-        --console::debug;
-        console::debug << "CGIReader::on_data_callback() END" << std::endl;
-        console::debug << "Avil in CGIHandler: " << this->_buffer.rdbuf()->in_avail() <<
-                       std::endl;
 }

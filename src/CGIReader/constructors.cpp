@@ -17,11 +17,12 @@
 
 #include "CGIReader.hpp"
 
-CGIReader::CGIReader(int fd, PollSet &pset, std::streambuf *buf,
+CGIReader::CGIReader(PollSet &pset, int fd, std::streambuf *buf,
                      HttpHeaders *hdrs):
-        FdReader(fd, pset, buf),
+        FdReader(pset, fd, buf),
         headers_parsed(false),
-        headers(hdrs)
+        headers(hdrs),
+        hbl(0)
 {
         pset.registerCallback(POLLHUP, this);
 }

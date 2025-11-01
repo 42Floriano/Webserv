@@ -15,17 +15,14 @@
 
 */
 
+#include "HttpClient.hpp"
 #include "ResponseHandler.hpp"
 
-ResponseHandler::ResponseHandler(Request &req, Response &res, PollSet &pset,
-                                 ConfigItem &server_config): _req(req),
-        _res(res), _pset(pset), _server_config(server_config)
+ResponseHandler::ResponseHandler(PollSet &pset, int fd, Address *addr,
+                                 ConfigItem &server_config):
+        HttpClient(pset, fd, addr),
+        server_config(server_config)
 {
         this->handled = false;
         this->internal_handler = NULL;
-}
-
-ResponseHandler::~ResponseHandler(void)
-{
-
 }

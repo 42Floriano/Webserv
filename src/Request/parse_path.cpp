@@ -32,6 +32,8 @@ void	Request::target_path(void)
         {
                 _first_line[1] = this->url->hier + '/' + it->second;
         }
+        else
+                _first_line[1] = this->url->hier;
 }
 
 void	Request::parse_path(ConfigItem &server_config)

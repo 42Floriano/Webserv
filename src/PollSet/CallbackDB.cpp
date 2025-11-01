@@ -25,21 +25,29 @@
 int	CallbackDB::on(Event event, Callback cb)
 {
 
-        (*this)[cb->fd()][event].push_back(cb);
+        (*this)[cb->fd][event].push_back(cb);
 
         return (0);
 }
 
 int	CallbackDB::off(Event event, Callback cb)
 {
-        CallbackVec::iterator it = (*this)[cb->fd()][event].begin();
-        CallbackVec::const_iterator end = (*this)[cb->fd()][event].end();
+        CallbackVec::iterator it = (*this)[cb->fd][event].begin();
+        CallbackVec::iterator end = (*this)[cb->fd][event].end();
 
         for (; it != end; ++it)
         {
                 if (*it == cb) /* comparing pointers (not PollCallbacks) */
                 {
-                        (*this)[cb->fd()][event].erase(it);
+                        (*this)[cb->fd][event].erase(it);
+                        if ((*this)[cb->fd][event].size() == 0)
+                        {
+                                (*this)[cb->fd].erase(event);
+                                if ((*this)[cb->fd].size() == 0)
+                                {
+                                        this->erase(cb->fd);
+                                }
+                        }
                         break;
                 }
         }

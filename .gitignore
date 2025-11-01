@@ -1,2 +1,11 @@
+*.a
+*.o
+webserv
+.vscode
 .DS_Store
-.env
+.vscode/
+docs
+www/upload/*
+src/vgcore*
+*.dSYM
+tester/logs

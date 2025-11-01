@@ -15,7 +15,9 @@
 
 */
 
+#include "cstdlib"
 #include "PollSet.hpp"
+#include "PollEvents.hpp"
 
 // Default constructor
 
@@ -25,8 +27,41 @@ PollSet::PollSet(void)
 }
 
 // Deconstructor
+typedef PollCallback *Callback;
+typedef std::vector<PollCallback *> CallbackQueue;
+typedef short Event;
+typedef std::map<Event, CallbackQueue> CallbackMap;
+typedef int EventEmitter;
 
 PollSet::~PollSet(void)
 {
+        CallbackDB::iterator it = this->_callbacks.begin();
+        CallbackDB::iterator it_end = this->_callbacks.end();
 
+        for (; it != it_end; it++)
+        {
+                EventEmitter fd = it->first;
+                console::error << "fd: " << fd << std::endl;
+                CallbackMap::iterator jt = it->second.begin();
+                CallbackMap::iterator jt_end = it->second.end();
+
+                for (; jt != jt_end; jt++)
+                {
+                        Event event = jt->first;
+                        console::error << "event: " << PollEvents::event_to_string(event) << std::endl;
+                        CallbackQueue::iterator kt = jt->second.begin();
+                        CallbackQueue::iterator kt_end = jt->second.end();
+
+                        for (; kt != kt_end; ++kt)
+                        {
+                                Callback cb = *kt;
+                                if (cb->fd != fd)
+                                {
+                                        throw std::runtime_error("callback fd is not the same as event emitter fd");
+                                }
+                                delete_callback(cb);
+                        }
+                }
+        }
+        cleanup_garbage();
 }

@@ -191,13 +191,13 @@ const ConfigItem *ConfigItem::operator[](const std::string &key) const
         }
 }
 
-#include "Console.hpp"
 ConfigItem::~ConfigItem(void)
 {
         if (this->name.empty())
                 console::info << "Deconstructing global config" << std::endl;
         for (size_t i = 0; i < this->children.size(); ++i)
         {
-                delete this->children[i];
+                if (this->children[i])
+                        delete this->children[i];
         }
 }

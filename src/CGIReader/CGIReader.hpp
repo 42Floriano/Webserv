@@ -20,14 +20,16 @@
 
 #include "HttpHeaders.hpp"
 #include "FdReader.hpp"
+#include "PollSet.hpp"
 
 struct	CGIReader: public FdReader
 {
         std::string	line_buffer;
         bool		headers_parsed;
         HttpHeaders	*headers;
+        size_t          hbl;
 
-        CGIReader(int fd, PollSet &pset, std::streambuf *buf, HttpHeaders *hdrs);
+        CGIReader(PollSet &pset, int fd, std::streambuf *buf, HttpHeaders *hdrs);
         ~CGIReader(void);
         void	on_data_callback(void);
         void	_onPOLLHUP(void);

@@ -18,9 +18,9 @@
 #include "Client.hpp"
 
 Client::Client(PollSet &pset, int clientfd, Address *clientaddr):
+        PollCallback(pset, clientfd),
         Socket(clientfd, clientaddr),
-        _pset(pset),
-        buffer_size(CLIENT_BUFFER_SIZE),
+        buffer_size(4096),
         byteswritten(0),
         bytesread(0),
         rchunk(Client::buffer_size, 0),

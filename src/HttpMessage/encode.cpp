@@ -21,14 +21,13 @@
 
 typedef std::map<std::string, std::string> str_map;
 
-void HttpMessage::encode(HttpMessage &msg)
+void HttpMessage::encode(HttpMessage &msg, int stop_at)
 {
         console::debug << "--- ENCODING LOOP START ---" << std::endl;
         console::debug << "[current phase: " << msg._encoding_phase << "]" << std::endl;
         ++console::debug;
 
-        while (HttpMessage::encode_once(&msg)
-                        && msg._encoding_phase != HttpMessage::decoding_done)
+        while (HttpMessage::encode_once(&msg) && msg._encoding_phase < stop_at)
         {
                 continue;
         }

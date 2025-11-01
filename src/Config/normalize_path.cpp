@@ -18,8 +18,9 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <Config.hpp>
 
-std::string	normalize_path(const std::string& path)
+std::string	Config::normalize_path(const std::string& path)
 {
 
         std::vector<std::string>	parts;

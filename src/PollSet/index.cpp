@@ -31,5 +31,5 @@ ssize_t		PollSet::index(PollCallback *cb) const
 {
         if (!cb)
                 return (-1);
-        return (this->index(cb->fd()));
+        return (this->index(cb->fd));
 }

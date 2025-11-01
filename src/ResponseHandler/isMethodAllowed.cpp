@@ -25,7 +25,7 @@ bool	ResponseHandler::isMethodAllowed() const
         {
                 for (size_t i = 0; i < loc["methods"]->args.size(); i++)
                 {
-                        if (this->_req.method() == loc["methods"]->args[i])
+                        if (this->req.method() == loc["methods"]->args[i])
                                 return (true);
                 }
         }

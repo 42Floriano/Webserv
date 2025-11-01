@@ -93,5 +93,5 @@ const std::string	*ResponseHandler::get_mime(const std::string &path)
                 }
         }
         throw std::runtime_error("Unsupported MIME type for file: " + path);
-		return NULL;
+        return NULL;
 }

@@ -53,7 +53,7 @@ std::string	Config::resolve_path(ConfigItem *self, const std::string &s)
         {
                 std::string	file_path = s;
                 ConfigItem	&loc = Config::match_location(self, s);
-                file_path = normalize_path(s);
+                file_path = Config::normalize_path(s);
                 file_path = postfix_index(file_path, loc);
                 file_path = prefix_root(file_path, *self, *((ConfigItem *)&loc));
                 return (file_path);

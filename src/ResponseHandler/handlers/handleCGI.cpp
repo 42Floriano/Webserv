@@ -30,7 +30,7 @@ void	ResponseHandler::handleCGI(void)
         if (!cgi_path)
                 throw std::runtime_error("No CGI path specified, we don't know what to run execute");
         std::string			cmd = cgi_path->args[0] + " ";
-        const std::string	&script_path = this->getRequestPath();
+        const std::string	&script_path = this->resolvedRequestPath();
 
         cmd += script_path;
         console::debug << "Script path: " << script_path << std::endl;
@@ -39,9 +39,11 @@ void	ResponseHandler::handleCGI(void)
         this->setStatusLine(200);
         this->internal_handler = new CGIHandler(
                 cmd,
-                this->_req,
-                this->_res,
-                this->_pset
+                //"cat",
+                this->req,
+                this->res,
+                this->pset
         );
+
         this->handled = true;
 }

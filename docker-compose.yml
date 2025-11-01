@@ -1,0 +1,26 @@
+services:
+  debian-dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: debian-dev
+    volumes:
+      - .:/workspace           # Mount current directory into container
+    working_dir: /workspace
+    user: vscode               # Same user as in devcontainer.json
+
+    # Capabilities and limits (for debugging/valgrind)
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp=unconfined
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
+
+    ports:
+      - "8080:8080"
+
+    # Optional: keep container alive for terminal use
+    tty: true

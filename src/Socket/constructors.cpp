@@ -28,6 +28,8 @@ Socket::Socket(int domain, int type, int protocol)
         this->rflags = MSG_DONTWAIT;
         this->wflags = MSG_DONTWAIT;
         this->fd = ::socket(domain, type, protocol);
+        int opt = 1;
+        setsockopt(this->fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
 };
 
 Socket::Socket(int fd, Address *addr)
@@ -38,6 +40,9 @@ Socket::Socket(int fd, Address *addr)
         this->fd = fd;
         this->rflags = MSG_DONTWAIT;
         this->wflags = MSG_DONTWAIT;
+        int opt = 1;
+        setsockopt(this->fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
 };
 
 Socket::~Socket(void)

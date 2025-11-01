@@ -22,11 +22,23 @@
 #include <map>
 #include <vector>
 
+/*
+ *	TLDR
+ *
+ *	just a mapping
+ *
+ *				fd -> event -> callback[]
+ *	Issue of current implementation:
+ *	the fd and callback are bound, not viceversa
+ * */
+
 // Ideas for templating this scam:
 typedef int								EventEmitter; /* fd */
 typedef short							Event; /* poll event */
 typedef PollCallback					*Callback;
 typedef std::vector<Callback>			CallbackVec;
+
+// Not using the vector at all (YAGNI fail)
 typedef std::map<Event, CallbackVec>	CallbackMap;
 
 // template<EventEmitter, Event, Callback>
@@ -39,6 +51,9 @@ struct	CallbackDB: public std::map<EventEmitter, CallbackMap>
 
         int		on(Event event, Callback cb);
         int		off(Event event, Callback cb);
+
+        // Should be like this, but well...
+        // void EventEmitter::emit(Event event);
         void	execute(EventEmitter emitter, Event event);
 };
 

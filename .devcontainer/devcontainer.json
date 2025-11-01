@@ -1,0 +1,33 @@
+{
+    "name": "Debian C/C++98 Dev",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": "."
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "vscode",
+  
+    // Allow debugging and valgrind (ptrace)
+    "runArgs": [ 
+      "--cap-add=SYS_PTRACE",
+      "--security-opt=seccomp=unconfined",
+      "--ulimit", "nofile=1048576:1048576" 
+    ],
+
+    "forwardPorts": [8080],
+  
+    "settings": {
+      "C_Cpp.default.cppStandard": "c++98",
+      "C_Cpp.default.cStandard": "c99",
+      "C_Cpp.intelliSenseEngine": "Default",
+      "C_Cpp.formatting": "clangFormat"
+    },
+  
+    "extensions": [
+      "ms-vscode.cpptools",        // C/C++ language support
+      "twxs.cmake",                // (optional) CMake syntax
+      "ms-vscode.cmake-tools"      // (optional) CMake integration
+    ]
+  }
+  

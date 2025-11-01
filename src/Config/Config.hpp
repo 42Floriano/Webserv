@@ -40,9 +40,10 @@ public:
                                            const std::string &path);
         static std::string	resolve_path(ConfigItem *self, const std::string &path);
         void   delete_conf(const Config &conf);
+        static std::string		normalize_path(const std::string& path);
 };
 
 std::ostream&	operator<<(std::ostream &os, const Config &conf);
-std::string		normalize_path(const std::string& path);
+
 
 #endif

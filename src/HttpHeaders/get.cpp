@@ -27,6 +27,6 @@ const std::string	*HttpHeaders::get(const std::string &header_name) const
         {
                 return &(this->find(key)->second);
         }
-        console::error << "Header " << header_name << " not found." << std::endl;
+        console::debug << "Header " << header_name << " not found." << std::endl;
         return (NULL);
 };

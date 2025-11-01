@@ -30,15 +30,15 @@ void	Server<ClientHandler>::onConnection(int clientfd, Address *clientaddr)
                                 << std::endl;
                 ++console::info;
                 ClientHandler	*client = new ClientHandler(
-                        this->_pset,
+                        this->pset,
                         clientfd,
                         clientaddr,
                         this->config);
                 client->state = Socket::connected;
                 --console::info;
 
-                this->_pset.registerCallback(POLLIN, client);
-                this->_pset.registerCallback(POLLERR, client);
-                this->_pset.registerCallback(POLLHUP, client);
+                this->pset.registerCallback(POLLIN, client);
+                this->pset.registerCallback(POLLERR, client);
+                this->pset.registerCallback(POLLHUP, client);
         }
 }

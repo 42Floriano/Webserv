@@ -15,6 +15,7 @@
 
 */
 
+#include <fcntl.h>
 #include "Process.hpp"
 
 void	Process::_create_channels(void)
@@ -36,4 +37,13 @@ void	Process::_create_channels(void)
         this->real_stdio.push_back(outfd[0]);
         this->real_stdio.push_back(errfd[0]);
 
+        for (int i = 0; i < 3; i++)
+        {
+                int flags = fcntl(this->stdio[0], F_GETFL, 0);
+                fcntl(this->stdio[0], F_SETFL, flags | O_NONBLOCK);
+
+                flags = fcntl(this->real_stdio[0], F_GETFL, 0);
+                fcntl(this->real_stdio[0], F_SETFL, flags | O_NONBLOCK);
+
+        }
 }

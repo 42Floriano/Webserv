@@ -20,14 +20,22 @@
 
 # include "Console.hpp"
 
+class PollSet;
+
 class	PollCallback
 {
 
 public:
-        virtual			~PollCallback(void) = 0;
+        PollSet&			pset;
+        int				fd;
+        bool			is_closed;
+
+        PollCallback(PollSet &pset, int fd);
+        virtual ~PollCallback(void);
 
         void			on(short pollevent);
-        virtual int		fd(void) const;
+        int				close(void);
+        void			unregister(void);
 
 protected:
         virtual void	_onPOLLIN(void);

@@ -20,25 +20,30 @@
 void	Client::_onPOLLIN(void)
 {
         console::debug
-                        << "Client[" << this->fd() << "]: Trying to read "
-                        << Client::buffer_size << "bytes"
+                        << "Client[" << this->Socket::fd << "]: Trying to read "
+                        << Client::buffer_size << " bytes"
                         << std::endl;
 
+        errno = 0;
         ssize_t readlen = this->read((char *)rchunk.data(), Client::buffer_size);
+        int error_code = errno;
 
         switch (readlen)
         {
         case -1:
-                this->onError();
+                console::error << "Read returned -1: " << strerror(error_code) << std::endl;
+                this->on_read_error_callback();
                 break;
         case 0:
-                this->onDisconnect();
+                console::debug << "Read returned 0" << std::endl;
+                this->on_eof_callback();
                 break;
         default:
+                console::debug << "Read success !" << std::endl;
                 this->bytesread += readlen;
                 this->rchunk.resize(readlen);
                 this->rbuf.clear();
                 this->rbuf << rchunk;
-                this->onData();
+                this->on_data_callback();
         }
 }

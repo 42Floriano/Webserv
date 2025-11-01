@@ -22,15 +22,23 @@ void	PollSet::poll(int timeout)
 
         console::debug << "=== Poll Event Loop: Start ===" << std::endl;
         console::debug << "PollSet size: " << this->_pollfdset.size() << std::endl;
-        ++console::debug;
+
+        this->empty_pollset();
+        this->populate_pollset();
+
         errno = 0;
         int n = ::poll(this->_pollfdset.ptr(), this->_pollfdset.size(), timeout);
+        int error = errno;
+
         this->print_events(console::debug);
-        (n < 0)		?
-        this->onPollError(errno):
-        (n == 0)	?
-        this->onPollTimeout(timeout):
-        this->onPollSuccess(n);
+
+        ++console::debug;
+        (n < 0)
+        ? this->onPollError(error)
+        : (n == 0)
+        ? this->onPollTimeout(timeout)
+        : this->onPollSuccess(n);
         --console::debug;
+
         console::debug << "=== Poll Event Loop: End ===\n" << std::endl;
 }

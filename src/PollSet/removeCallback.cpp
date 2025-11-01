@@ -20,31 +20,7 @@
 
 void	PollSet::removeCallback(short event, PollCallback *cb)
 {
-        int	index = this->index(cb);
-        if (index == -1)
-        {
-                console::error << "PollSet::removeCallback: index is -1" << std::endl;
-        }
-        else
-        {
-                console::debug
-                                << "Removing callback " << cb << " on fd " << cb->fd()
-                                << " (event: " << PollEvents::event_to_string(event) << ")"
-                                << std::endl;
-
-                this->_callbacks.off(event, cb);
-                if (this->no_callback_left(cb->fd(), event))
-                {
-                        short& events = this->_pollfdset.ptr()[index].events;
-                        events &= ~event;
-                        if (events == 0)
-                                this->_pollfdset.remove(index);
-                }
-                console::debug
-                                << "Remaining events we are listening to:"
-                                << PollEvents::events_to_string(this->_pollfdset.ptr()[index].events)
-                                << std::endl;
-        }
+        this->_callbacks.off(event, cb);
 }
 
 void	PollSet::removeCallback(Callback cb)
@@ -54,47 +30,4 @@ void	PollSet::removeCallback(Callback cb)
                 short ev = PollEvents::array[i];
                 this->removeCallback(ev, cb);
         }
-}
-
-void	PollSet::destroyCallback(Callback cb)
-{
-        this->removeCallback(cb);
-        delete cb;
-}
-
-void	PollSet::removeCallbacks(int fd, short event)
-{
-        CallbackVec &cbvec = this->_callbacks[fd][event];
-        for (CallbackVec::size_type i = 0; i < cbvec.size(); ++i)
-        {
-                this->removeCallback(event, this->_callbacks[fd][event][i]);
-        }
-}
-
-#include <set>
-void	PollSet::removeCallbacks()
-{
-        std::map<EventEmitter, CallbackMap>::iterator iter = this->_callbacks.begin();
-        std::set<Callback>	clean_up_set;
-        while (iter != this->_callbacks.end())
-        {
-                int fd = iter->first;
-                for (size_t i = 0; i < PollEvents::number_of_events; ++i)
-                {
-                        short ev = PollEvents::array[i];
-                        CallbackVec &cbvec = this->_callbacks[fd][ev];
-                        for (CallbackVec::size_type i = 0; i < cbvec.size(); ++i)
-                        {
-                                Callback	cb = this->_callbacks[fd][ev][i];
-                                this->removeCallback(ev, cb);
-                                clean_up_set.insert(cb);
-                        }
-                        this->removeCallbacks(fd, ev);
-                }
-                iter++;
-        }
-
-        std::set<Callback>::iterator	cb;
-        for (cb = clean_up_set.begin(); cb != clean_up_set.end(); ++cb)
-                delete (*cb);
 }

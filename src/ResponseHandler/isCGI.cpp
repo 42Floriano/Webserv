@@ -17,7 +17,7 @@
 
 #include "ResponseHandler.hpp"
 
-bool	ResponseHandler::isCGI(void)
+bool	ResponseHandler::isCGI(void) const
 {
 
         ConfigItem &loc = this->getLocation();
@@ -29,7 +29,6 @@ bool	ResponseHandler::isCGI(void)
         }
         catch (const std::exception &err)
         {
-                console::debug << "CGI extension rule not found" << std::endl;
                 return false;
         }
 }

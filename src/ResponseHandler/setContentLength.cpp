@@ -19,7 +19,7 @@
 
 void	ResponseHandler::setContentLength(size_t content_length)
 {
-        this->_res._content_length = content_length;
+        this->res._content_length = content_length;
         std::stringstream ss;
         ss << content_length;
         this->setHeader("Content-Length", ss.str());

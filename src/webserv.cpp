@@ -24,5 +24,14 @@ int	main(int ac, char **av)
 {
         char *config_path = Webserv::parse_args(ac, av);
 
-        Webserv	app(config_path);
+        Webserv	app;
+        if (app.configure(config_path) == 1)
+                return -1;
+        try {
+                app.init();
+                app.run(1000);
+        } catch (int err)
+        {
+                console::error << "failed to init the app: address in use" << std::endl;
+        }
 }

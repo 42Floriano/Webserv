@@ -20,23 +20,23 @@
 
 void ResponseHandler::handleDELETE(void)
 {
-        std::string decodedFullPath = Url::decode(this->getRequestPath());
-        std::string decodedPath = Url::decode(this->_req.path());
+        std::string decodedFullPath = Url::decode(this->resolvedRequestPath());
+        std::string decodedPath = Url::decode(this->req.path());
 
         if (decodedPath.find("..") != std::string::npos)
-                return setErrorResponse("" + decodedPath, 400);
+                return handleError(400);
 
         struct stat st;
         if (stat(decodedFullPath.c_str(), &st))
-                return setErrorResponse("" + decodedPath, 404);
+                return handleError(404);
         if (!S_ISREG(st.st_mode) || access(decodedFullPath.c_str(), W_OK))
-                return setErrorResponse("" + decodedPath, 403);
+                return handleError(403);
         if (std::remove(decodedFullPath.c_str()) != 0)
         {
                 if (errno == EACCES || errno == EPERM)
-                        return setErrorResponse("" + decodedPath, 403);
+                        return handleError(403);
                 else
-                        return setErrorResponse("" + decodedPath, 500);
+                        return handleError(500);
         }
         this->setStatusLine(200);
         this->setContentLength(0);

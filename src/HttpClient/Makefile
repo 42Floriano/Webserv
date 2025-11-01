@@ -4,9 +4,8 @@ NAME	:= HttpClient
 SOURCES	:= 			\
 	constructor.cpp	\
 	getters.cpp		\
-	onData.cpp		\
-	onWritable.cpp	\
-	on_nothing_to_write.cpp \
+	on_data_callback.cpp	\
+	_prepare_chunk.cpp			\
 	operators.cpp			\
 
 include	$(MK)class.mk

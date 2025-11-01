@@ -19,6 +19,7 @@
 
 void	Client::dispatch_wchunk(void)
 {
+        console::error("Client::dispatch_wchunk");
         errno = 0;
         ssize_t writelen = this->write(this->wchunk.data(), this->wchunk.size());
 
@@ -26,23 +27,23 @@ void	Client::dispatch_wchunk(void)
         if (writelen == -1)
         {
                 console::error << "Write error: " << strerror(errno) <<std::endl;
-
-                //throw std::runtime_error("Unhandeled write error (do not catch, handle!)");
         }
 
         // on success
         this->byteswritten += writelen;
 
-        // partial writes may occour
         if (-1 < writelen && writelen < (ssize_t) this->wchunk.size())
         {
                 console::error << "Partial write" << std::endl;
                 throw std::runtime_error("Unhandled partial write");
         }
+        console::error("");
 }
 
 void	Client::prepare_wchunk(void)
 {
+        this->_prepare_chunk();
+
         this->wbuf.clear();
         this->wchunk.resize(this->buffer_size);
         this->wbuf.read((char *)wchunk.data(), wchunk.size());
@@ -52,12 +53,14 @@ void	Client::prepare_wchunk(void)
 void	Client::_onPOLLOUT(void)
 {
         // prepares the buffer
-        this->onWritable();
-
         this->prepare_wchunk();
 
         if (this->wchunk.size() > 0)
+        {
                 this->dispatch_wchunk();
+        }
         else
+        {
                 this->on_nothing_to_write();
+        }
 }

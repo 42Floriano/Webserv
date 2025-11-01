@@ -15,20 +15,32 @@
 
 */
 
+#include <stdexcept>
 #include <unistd.h>
 #include <poll.h>
 #include "PollCallback.hpp"
+#include "PollSet.hpp"
 
-/* Public Methods */
+PollCallback::PollCallback(PollSet &pset, int fd):
+        pset(pset),
+        fd(fd),
+        is_closed(false)
+{
+
+};
 
 PollCallback::~PollCallback()
 {
-        // does nothing (is pure)
+
+}
+
+void	PollCallback::unregister(void)
+{
+        this->pset.removeCallback(this);
 }
 
 void	PollCallback::on(short pollevent)
 {
-
         switch (pollevent)
         {
         case POLLIN:
@@ -40,9 +52,6 @@ void	PollCallback::on(short pollevent)
         case POLLOUT:
                 this->_onPOLLOUT();
                 break;
-        // case POLLRDHUP:
-        // 	this->_onPOLLRDHUP();
-        // 	break;
         case POLLERR:
                 this->_onPOLLERR();
                 break;
@@ -53,49 +62,56 @@ void	PollCallback::on(short pollevent)
                 this->_onPOLLNVAL();
                 break;
         default:
+                std::stringstream msg;
+                msg << "Unhandled event (" << pollevent << ") on fd " << this->fd;
+                throw std::runtime_error(msg.str());
                 break;
         }
-
 }
 
-int	PollCallback::fd() const
+int	PollCallback::close()
 {
-        return (-1);
-}
+        return ::close(this->fd);
+};
+
+static void throw_unhandeled_event(int fd, std::string event)
+{
+        std::stringstream errormsg;
+        errormsg << "Unhandled " << event << " on fd " << fd;
+        throw std::runtime_error(errormsg.str());
+};
 
 void	PollCallback::_onPOLLIN(void)
 {
-        //base class does nothing
+        throw_unhandeled_event(this->fd, "POLLIN");
 };
 
 void	PollCallback::_onPOLLPRI(void)
 {
-        //base class does nothing
+        throw_unhandeled_event(this->fd, "POLLPRI");
 };
 
 void	PollCallback::_onPOLLOUT(void)
 {
-        //base class does nothing
+        throw_unhandeled_event(this->fd, "POLLOUT");
 };
-
-//#include <iostream>
 
 void	PollCallback::_onPOLLRDHUP(void)
 {
-        //base class does nothing
+        throw_unhandeled_event(this->fd, "POLLRDHUP");
 };
 
 void	PollCallback::_onPOLLERR(void)
 {
-        //base class does nothing
-}
+        throw_unhandeled_event(this->fd, "POLLERR");
+};
 
 void	PollCallback::_onPOLLHUP(void)
 {
-        //base class does nothing
-}
+        throw_unhandeled_event(this->fd, "POLLHUP");
+};
 
 void	PollCallback::_onPOLLNVAL(void)
 {
-        //base class does nothing
-}
+        throw_unhandeled_event(this->fd, "POLLNVAL");
+};

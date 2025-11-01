@@ -20,12 +20,10 @@
 
 ConfigItem&	ResponseHandler::getServerConfig(void) const
 {
-        const std::string	*host_header = this->_req._headers.get("Host");
-        if (host_header == NULL)
-                throw std::runtime_error("Panic: handle me, there is no host in headers");
+        const std::string	*host_header = this->req._headers.get("Host");
 
-        ConfigIter	it = ConfigIter::begin(this->_server_config, "server");
-        ConfigIter	end = ConfigIter::end(this->_server_config);
+        ConfigIter	it = ConfigIter::begin(this->server_config, "server");
+        ConfigIter	end = ConfigIter::end(this->server_config);
 
         while (it != end)
         {
@@ -41,7 +39,7 @@ ConfigItem&	ResponseHandler::getServerConfig(void) const
                         //careful this shit segfaults if host and listen are not in the config of a server
                         actual_server_name = (*it)["host"]->args[0] + ":" + (*it)["listen"]->args[0];
                 }
-                if (actual_server_name == *host_header)
+                if (host_header == NULL || actual_server_name == *host_header)
                 {
                         return (*it);
                 }

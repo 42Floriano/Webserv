@@ -32,8 +32,8 @@ void	Socket::bind(const std::string &addr, const std::string &service)
         errno = 0;
         if(::bind(this->fd, this->address->ptr(), this->address->len()) < 0)
         {
-                delete this->address;
-                throw errno;
+                //delete this->address;
+                throw -69;
         }
 
         // Sets the inner state of the socket

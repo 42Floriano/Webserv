@@ -32,7 +32,7 @@
 # include "Socket.hpp"
 # include "PollCallback.hpp"
 
-class PollSock: public PollCallback, public Socket
+class PollSock: public Socket, public PollCallback
 {
 
 public:		// constructors
@@ -41,7 +41,6 @@ public:		// constructors
         ~PollSock();
 
 public:	// private fields
-        PollSet&			_pset;
         int					_reserved_fd;
 
 protected:	// PollCallback overloads

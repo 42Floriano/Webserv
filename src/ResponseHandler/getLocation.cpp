@@ -20,5 +20,5 @@
 ConfigItem&	ResponseHandler::getLocation(void) const
 {
         return Config::match_location(&this->getServerConfig(),
-                                      Url::decode(this->_req.path()));
+                                      Url::decode(this->req.path()));
 }

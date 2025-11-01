@@ -15,23 +15,29 @@
 
 */
 
-#ifndef FDREADER_HPP
-# define FDREADER_HPP
+#ifndef POLLABLEREADABLE_HP
+# define POLLABLEREADABLE_HP
 
-#include "PollSet.hpp"
-#include "PollableReadable.hpp"
+# include <unistd.h>
+# include <cerrno>
+# include "PollableStream.hpp"
 
-struct	FdReader: public PollableReadable
+
+struct	FdReader: public PollableStream
 {
-public:
-        PollSet&	pset;
-        bool		done;
-
-public:
-        FdReader(int fd, PollSet &pset, std::streambuf *res_body);
+        FdReader(PollSet &pset, int fd, std::streambuf *buff);
         ~FdReader(void);
-        void	on_eof_callback(void);
-        void	on_data_callback(void);
+
+        bool			eof;
+        size_t			bytesread;
+        int				read_error;
+        std::string		chunk;
+
+        virtual	void	on_data_callback(void);
+        virtual	void	on_eof_callback(void);
+        virtual	void	on_read_error_callback(void);
+        virtual ssize_t	_read(char *buf, size_t buflen);
+        void			_onPOLLIN(void);
 };
 
 #endif

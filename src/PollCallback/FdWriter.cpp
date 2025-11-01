@@ -15,31 +15,83 @@
 
 */
 
+#include "PollSet.hpp"
 #include "FdWriter.hpp"
 
-FdWriter::FdWriter(int fd, PollSet &pset, std::streambuf *buff):
-        PollableWritable(fd, buff),
-        pset(pset)
+ssize_t	FdWriter::_write(char *buf, size_t buflen)
 {
-        this->buffer_size(4096);
+        return ::write(this->fd, buf, buflen);
+};
+
+void FdWriter::_get_chunk(void)
+{
+        if (chunk.size() > 0)
+                return;
+        else
+        {
+                chunk.resize(this->BUFFER_SIZE + 1, 0);
+                this->_buffer.read(&chunk[0], chunk.size() - 1);
+                chunk.resize(this->_buffer.gcount());
+        }
+}
+
+FdWriter::FdWriter(PollSet &pset, int fd, std::streambuf *buf):
+        PollableStream(pset, fd, buf)
+{
         pset.registerCallback(POLLOUT, this);
-        console::debug
-                        << "new FdWriter on fd " << this->fd()
-                        << " with buffer size: " << this->buffer_size()
-                        << std::endl;
+        //pset.registerCallback(POLLHUP, this);
+        //pset.registerCallback(POLLERR, this);
 }
 
-void	FdWriter::on_nothing_to_write_callback(void)
+void    FdWriter::_onPOLLERR(void)
 {
-        this->nothing_to_write = true;
+        throw 42;
 }
 
-void	FdWriter::on_write_success_callback(void)
+void	FdWriter::_onPOLLOUT(void)
 {
-        this->nothing_to_write = false;
+        this->_get_chunk();
+        console::error << "CHUNK: " << this->chunk << std::endl;
+
+        if (chunk.size() > 0)
+        {
+                this->nothing_to_write = false;
+
+                errno = 0;
+                ssize_t writelen = this->_write(&chunk[0], chunk.size());
+                this->write_error = errno;
+
+                if (writelen == -1)
+                {
+                        console::error << strerror(this->write_error) << std::endl;
+                        this->on_error_callback();
+                }
+                else
+                {
+                        console::error << "gm bro " << writelen << std::endl;
+                        console::error << "gm bro " << chunk.size() << std::endl;
+                        this->nothing_to_write = false;
+                        chunk = chunk.substr(writelen);
+                        this->on_write_success_callback();
+                }
+        }
+        else
+        {
+                this->nothing_to_write = true;
+                this->on_nothing_to_write_callback();
+        }
 }
 
-FdWriter::~FdWriter(void)
+void FdWriter::on_error_callback()
 {
-        this->pset.removeCallback(POLLOUT, this);
+        console::error << "Failed to write" << std::endl;
+        //throw 42;
+}
+
+void FdWriter::on_nothing_to_write_callback()
+{
+}
+
+void FdWriter::on_write_success_callback()
+{
 }

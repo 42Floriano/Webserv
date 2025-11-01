@@ -20,5 +20,5 @@
 void	ResponseHandler::setHeader(const std::string &key,
                                  const std::string &value)
 {
-        _res._headers.insert(key, value);
+        res._headers.insert(key, value);
 }

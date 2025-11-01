@@ -20,41 +20,29 @@
 
 void	ResponseHandler::handleGET(void)
 {
-        console::debug << "Opening " << Url::decode(this->getRequestPath()) <<
-                          " for GET req" << std::endl;
-		std::string	filepath = Url::decode(this->getRequestPath());
-        int	fd = this->openReg(filepath, O_RDONLY);
+        std::string	filepath = this->resolvedRequestPath();
+        ssize_t len;
+        int	fd = this->openRegularFile(filepath, O_RDONLY, &len);
 
-        if (fd > -1)
+        if (fd > -1 && len > -1)
         {
-                size_t len = getFileLength(filepath);
-
                 this->setStatusLine(200);
                 this->setContentType(filepath);
                 this->setContentLength(len);
                 this->sealHeaders();
+
                 this->internal_handler = new FdReader(
+                        this->pset,
                         fd,
-                        this->_pset,
-                        this->_res._body.rdbuf()
+                        this->res._body.rdbuf()
                 );
+        }
+        else if (fd > -1)
+        {
+                throw std::runtime_error("We do not handle chunked response");
         }
         else
         {
-                switch (fd)
-                {
-                case -1:
-                        setErrorResponse("", 500);
-                        break;
-                case -2:
-                        setErrorResponse("", 404);
-                        break;
-                case -3:
-                        setErrorResponse("", 403);
-                        break;
-                default:
-                        setErrorResponse("", 500);
-                        break;
-                }
+                this->handleError(-fd);
         }
 }

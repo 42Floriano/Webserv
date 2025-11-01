@@ -16,10 +16,3 @@
 */
 
 #include "CGIHandler.hpp"
-
-CGIHandler::~CGIHandler()
-{
-        // Should call (?) deconstructor of
-        // CGIReader (on read_callback)
-        // and FdWriter (on write_callback)
-}

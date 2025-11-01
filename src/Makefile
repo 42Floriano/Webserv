@@ -5,9 +5,9 @@ CPPFLAGS	:= $(CPPFLAGS:-I../%=-I%)
 NAME		:= webserv
 
 CLASS_NAMES	:=		\
-	WebservDos			\
-	HttpClient		\
+	App				\
 	ResponseHandler	\
+	HttpClient		\
 	CGIHandler		\
 	CGIReader		\
 	Client			\

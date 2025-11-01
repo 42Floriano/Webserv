@@ -31,6 +31,37 @@
 
 struct HttpMessage : public std::iostream
 {
+
+        std::string			_first_line[3];
+        HttpHeaders			_headers;
+        std::stringstream	_body;
+        HttpHeaders			_trailers;
+        std::string			_buffer;
+
+        int					_decoding_phase;
+        int					_encoding_phase;
+        bool				_chunked;
+        size_t				current_body_size;
+        size_t				_content_length;
+        size_t				_header_bytelen;
+
+        HttpMessage(std::stringbuf &s);
+        ~HttpMessage(void);
+
+        static bool		getline(std::istream &is, std::string &dst);
+        static bool		getchunk(std::istream &is, std::string &dst);
+
+        static void		decode(HttpMessage &msg, int stop_at = HttpMessage::decoding_done);
+        static void		encode(HttpMessage &msg, int stop_at = HttpMessage::encoding_done);
+
+        static bool		decode_once(HttpMessage *self);
+        static int		decode_first_line(HttpMessage *self, const std::string &line);
+        static int		decode_headers(HttpMessage *self, const std::string &line);
+        static int		decode_trailers(HttpMessage *self, const std::string &line);
+        static size_t	decode_chunk_size(const std::string &chunk);
+
+        static bool		encode_once(HttpMessage *msg);
+
         enum /* decoding phases */
         {
                 decoding_first_line,
@@ -40,6 +71,7 @@ struct HttpMessage : public std::iostream
                 decoding_chunk_data,
                 decoding_trailers,
                 decoding_done,
+                decoding_error,
         };
 
         enum /* encoding phases */
@@ -50,37 +82,7 @@ struct HttpMessage : public std::iostream
                 encoding_chunk_size,
                 encoding_chunk_data,
                 encoding_done,
+                encoding_error,
         };
-
-        static bool getline(std::istream &is, std::string &dst);
-        static bool getchunk(std::istream &is, std::string &dst);
-
-        static void decode(HttpMessage &msg, int stop_at = HttpMessage::decoding_done);
-        static bool	decode_once(HttpMessage *self);
-
-        static int	decode_first_line(HttpMessage *self, const std::string &line);
-        static int	decode_headers(HttpMessage *self, const std::string &line);
-        static int	decode_trailers(HttpMessage *self, const std::string &line);
-        static size_t decode_chunk_size(const std::string &chunk);
-
-        static void encode(HttpMessage &msg);
-        static bool	encode_once(HttpMessage *msg);
-
-        HttpMessage(std::stringbuf &s);
-        ~HttpMessage(void);
-
-        std::string			_first_line[3];
-        HttpHeaders			_headers;
-        std::stringstream	_body;
-        HttpHeaders			_trailers;
-
-        std::string _buffer;
-        int _decoding_phase;
-        int _encoding_phase;
-        bool _chunked;
-        size_t current_body_size;
-        size_t _content_length;
-        size_t _header_bytelen;
 };
-
 #endif

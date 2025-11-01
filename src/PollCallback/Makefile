@@ -1,6 +1,6 @@
 include ../include.mk
 
 NAME	:= PollCallback
-SOURCES	:= PollCallback.cpp PollableFile.cpp PollableReadable.cpp PollableWritable.cpp FdReader.cpp FdWriter.cpp
+SOURCES	:= PollCallback.cpp PollableStream.cpp FdReader.cpp FdWriter.cpp FdDuplex.cpp SocketDuplex.cpp
 
 include $(MK)class.mk

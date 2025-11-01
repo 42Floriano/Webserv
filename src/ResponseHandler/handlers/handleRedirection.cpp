@@ -20,11 +20,12 @@
 void    ResponseHandler::handleRedirection(void)
 {
         ConfigItem &loc = Config::match_location(&this->getServerConfig(),
-                          this->_req.path());
+                          this->req.path());
         this->setStatusLine(atoi((*loc["return"])[0]->c_str()));
         this->setContentLength(0);
         console::debug << "Redirection, sending new location: "<<
                        loc["return"][0][1][0] << std::endl;
         this->setHeader("location", *(*loc["return"])[1]);
+        std::cout << "Location" << *(*loc["return"])[1] << std::endl;
         this->sealHeaders();
 }

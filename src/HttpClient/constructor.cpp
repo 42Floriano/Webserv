@@ -17,32 +17,11 @@
 
 #include "HttpClient.hpp"
 
-HttpClient::HttpClient(PollSet &pset, int clientfd, Address *clientaddr,
-                       ConfigItem &cfg):
+HttpClient::HttpClient(PollSet &pset, int clientfd, Address *clientaddr):
         Client(pset, clientfd, clientaddr),
-        incoming(*this->rbuf.rdbuf()),
-        outgoing(*this->wbuf.rdbuf()),
-        _handler(incoming, outgoing, pset, cfg),
+        req(*this->rbuf.rdbuf()),
+        res(*this->wbuf.rdbuf()),
         handled(false)
 {
         console::info << "new " << *this << std::endl;
-}
-
-HttpClient::~HttpClient(void)
-{
-        console::info << "Deconstructing client" << std::endl;
-        try
-        {
-                if (this->_handler.isCGI())
-                        delete ((CGIHandler *)(this->_handler.internal_handler));
-                else
-                {
-                        console::info << "Deconstructing internal handler for non CGI req" << std::endl;
-                        this->_pset.removeCallback((PollCallback *)(this->_handler.internal_handler));
-                }
-        }
-        catch (const std::exception &err)
-        {
-                console::debug << "There was no POLLOUT callback to remove" << std::endl;
-        }
 }

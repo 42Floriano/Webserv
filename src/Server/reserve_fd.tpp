@@ -20,17 +20,11 @@ void			Server<ClientHandler>::reserve_fd()
 {
         if (this->reserved_fd == -1)
         {
-                console::debug << "reserving fd for server " << this->fd() << std::endl;
-
                 this->reserved_fd = ::dup(this->fd());
 
                 if (this->reserved_fd == -1)
                 {
                         throw std::runtime_error("Server: could not reserve fd");
-                }
-                else
-                {
-                        console::debug << "reserved:  " << this->reserved_fd << std::endl;
                 }
         }
 }

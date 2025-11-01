@@ -19,5 +19,5 @@
 
 std::ostream& operator<<(std::ostream &os, const HttpClient &client)
 {
-        return os << "HttpClient " << &client << " (fd " << client.fd() << ")";
+        return os << "HttpClient " << &client << " (fd " << client.Socket::fd << ")";
 }

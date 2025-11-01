@@ -19,5 +19,5 @@
 
 void		ResponseHandler::sealHeaders()
 {
-        this->_res._headers.seal();
+        this->res._headers.seal();
 }

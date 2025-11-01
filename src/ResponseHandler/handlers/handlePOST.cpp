@@ -19,17 +19,18 @@
 
 void	ResponseHandler::handlePOST(void)
 {
-        if (this->_req._headers.content_length() == -1)
+        if (this->req._headers.content_length() == -1)
         {
-                this->setErrorResponse("", 411);
+                this->handleError(411);
                 return;
         }
-        if (this->_req._headers.content_length() > this->getMaxBodySize())
+        if (this->req._headers.content_length() > this->getMaxBodySize())
         {
-                this->setErrorResponse("", 413);
+                this->handleError(413);
                 return;
         }
-        std::string filename = getFilename();
+
+        std::string filename = getPostFilename();
 
         console::info << "POST: url-decoding " << filename << std::endl;
         console::info << "POST: opening " << Url::decode(filename) << std::endl;
@@ -44,9 +45,9 @@ void	ResponseHandler::handlePOST(void)
         if (fd != -1 && errno == 0)
         {
                 this->internal_handler = new FdWriter(
+                        this->pset,
                         fd,
-                        this->_pset,
-                        this->_req._body.rdbuf()
+                        this->req._body.rdbuf()
                 );
                 this->setStatusLine(200);
                 this->setContentLength(0);
@@ -56,6 +57,6 @@ void	ResponseHandler::handlePOST(void)
         {
                 console::error << "Open error while handling POST request: " << strerror(
                                        errno) << std::endl;
-                this->setErrorResponse("", 409);
+                this->handleError(409);
         }
 }

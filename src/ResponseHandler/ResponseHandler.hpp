@@ -26,70 +26,75 @@
 #include <cstdio>
 #include <unistd.h>
 
+#include "HttpClient.hpp"
 #include "CGIHandler.hpp"
 #include "Request.hpp"
 #include "Response.hpp"
 #include "FdReader.hpp"
 #include "FdWriter.hpp"
 
-class ResponseHandler
+struct ResponseHandler: public HttpClient
 {
+        void	_onPOLLHUP(void);
+        void	_onPOLLERR(void);
+        // only two fields
+        ConfigItem&			server_config;
+        void				*internal_handler;
+
+        // these are the event callbacks (poll events are handeled internally
+        // and they expose these callbacks inste);
+        void				on_nothing_to_write(void);
+        void				on_eof_callback(void);
+        void				on_read_error_callback(void);
+
+        ResponseHandler(PollSet &pset, int fd, Address *addr,
+                        ConfigItem &server_config);
+        ~ResponseHandler();
+
+        // Main function of this class: it overrides the underlying virtual
+        // called by HttpClient
+        bool				handleResponse(void);
+
+        void				handleRedirection(void);
+        void				handleCGI(void);
+        void				handleGET(void);
+        void				handlePOST(void);
+        void				handleDELETE(void);
+        void				handleError(int statusCode);
+
+        // Internal handler cleaners
+        void				delete_internal_handler(void);
+        void				unregister_internal_handler(void);
+        void				close_internal_handler(void);
+
+        // Request types checkers
+        bool				isCGI() const;
+        bool				isRedirection() const;
+        bool				isStandardMethod() const;
+        bool				isCustomMethod() const;
+        bool				isMethodAllowed() const;
+
+        // Functions querying the config
+        ConfigItem&			getLocation(void) const;
+        ssize_t				getMaxBodySize(void) const;
+        ConfigItem&			getServerConfig(void) const;
+        std::string			resolvedRequestPath(void) const;
+
+        // Helper functions used to set things in the response
+        void				setStatusLine(int statusCode);
+        void				setHeader(const std::string &key, const std::string &value);
+        void				setContentLength(size_t content_length);
+        void				setContentType(std::string &path);
+        void				sealHeaders(void);
+
+        // File system helpers
+        std::string			getPostFilename(void);
+
+        static size_t		getFileLength(const std::string &filename);
+        int					openRegularFile(std::string path, int flags, ssize_t *len = NULL);
+        int					openErrorPage(int status_code, ssize_t *len = NULL);
+
         static const std::string	*get_mime(const std::string &path);
-public:
-        ResponseHandler(
-                Request &req,
-                Response &res,
-                PollSet &pset,
-                ConfigItem &server_config
-        );
-        ~ResponseHandler(void);
-
-public:
-        bool					isCGI();
-        bool					isRedirection();
-        ConfigItem&				getLocation(void) const;
-        ssize_t					getMaxBodySize(void) const;
-        ConfigItem&				getServerConfig(void) const;
-        int					getErrorPageFd(int status_code, size_t *len);
-        bool                                    handled;
-        Request&				_req;
-        Response&				_res;
-        PollSet&                _pset;
-        ConfigItem&				_server_config;
-        int						internal_handler_type;
-        void					*internal_handler;
-
-public:
-        Request&				req(void);
-        Request&				res(void);
-
-public:
-        void                                    handleRedirection(void);
-        void					handleCGI(void);
-        void					handleGET(void);
-        void					handlePOST(void);
-        void					handleDELETE(void);
-        void					handleInvalidMethod(void);
-
-public:
-        static size_t   getFileLength(const std::string &filename);
-        const char		*getRequestPath(void);
-
-public:
-        bool		handleResponse(void);
-
-public:
-        bool	        isMethodAllowed() const;
-public:
-        void		setStatusLine(int statusCode);
-        void		setHeader(const std::string &key, const std::string &value);
-        void		setContentLength(size_t content_length);
-        void	        setContentType(std::string &path);
-        void		sealHeaders(void);
-        std::string     getFilename(void);
-        void            setErrorResponse(const std::string &msg, int statusCode);
-public:
-        int             openReg(std::string path, int bit);
 };
 
 #endif

@@ -25,5 +25,6 @@ void	HttpHeaders::insert(const std::string &k, const std::string &value)
         std::pair<std::map<std::string, std::string>::iterator, bool> res =
                 this->map::insert(std::pair<std::string, std::string>(key, value));
         if (res.second == false)
-                console::error << "map insertion (" + key  + ", " + value + ") failed" << std::endl;
+                console::error << "map insertion (" + key  + ", " + value + ") failed" <<
+                               std::endl;
 }

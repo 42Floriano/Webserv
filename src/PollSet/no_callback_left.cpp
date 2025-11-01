@@ -15,11 +15,17 @@
 
 */
 
+#include "PollEvents.hpp"
 #include "PollSet.hpp"
 
 bool	PollSet::no_callback_left(int fd, short event) const
 {
-        console::debug << "Wondering how many callbacks are left? "
-                       << this->_callbacks.at(fd).at(event).size() << std::endl;
+        console::debug
+                        << "Wondering how many callbacks are left for fd "
+                        << fd
+                        << " at event " << PollEvents::event_to_string(event) << "? "
+                        << this->_callbacks.at(fd).at(event).size()
+                        << std::endl;
+
         return this->_callbacks.at(fd).at(event).size() == 0;
 }

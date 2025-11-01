@@ -28,8 +28,6 @@
 class Client: public PollCallback, public Socket
 {
 public:
-        PollSet& _pset;
-
         size_t buffer_size;
         size_t byteswritten;
         size_t bytesread;
@@ -39,21 +37,16 @@ public:
         std::stringstream wbuf;
 
         Client(PollSet &pset, int fd, Address *addr);
-
-        int	fd() const;
         void destroy(void);
-
-        virtual void onData(void) = 0;
-        virtual void onWritable(void) = 0;
-        virtual void onDisconnect(void);
-        virtual void onError(void);
+        virtual void on_data_callback(void) = 0;
+        virtual void _prepare_chunk(void) = 0;
+        virtual void on_eof_callback(void) = 0;
+        virtual void on_read_error_callback(void) = 0;
         virtual void on_nothing_to_write(void) = 0;
 
-private:
+protected:
         void _onPOLLIN(void);
         void _onPOLLOUT(void);
-        void _onPOLLERR(void);
-        void _onPOLLHUP(void);
         void dispatch_wchunk(void);
         void prepare_wchunk(void);
 };

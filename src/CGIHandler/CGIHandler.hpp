@@ -31,7 +31,6 @@ struct CGIHandler
         FdWriter	write_callback;
 
         CGIHandler(const std::string &cmd, Request &req, Response &res, PollSet &pset);
-        ~CGIHandler();
 };
 
 #endif

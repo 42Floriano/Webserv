@@ -68,6 +68,12 @@ ConfigItem *ConfigParser::parseContext(std::istream &input, size_t& line,
 
                         if (tok == "}")
                         {
+                                if(name == "server" && items.empty())
+                                {
+                                        std::stringstream error_msg;
+                                        error_msg << "Server config is empty" << std::endl;
+                                        throw std::runtime_error(error_msg.str());
+                                }
                                 nextToken(input, line);
                                 break;
                         }
@@ -100,7 +106,10 @@ ConfigItem *ConfigParser::parseContext(std::istream &input, size_t& line,
                 }
 
         }
-        catch  (const std::exception&) {}
+        catch  (const std::exception& e)
+        {
+                std::cerr << "Exception caught: " << e.what() << std::endl;
+        }
 
         return new ConfigItem(name, args, items);
 }

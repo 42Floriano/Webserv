@@ -15,22 +15,33 @@
 
 */
 
-#ifndef FDWRITER_HPP
-# define FDWRITER_HPP
+#ifndef POLLABLEWRITABLE_HPP
+# define POLLABLEWRITABLE_HPP
 
-#include "PollSet.hpp"
-#include "PollableWritable.hpp"
+#include <unistd.h>
+#include <string>
+#include <cerrno>
 
-class FdWriter: public PollableWritable
+#include "PollableStream.hpp"
+
+struct	FdWriter: public PollableStream
 {
-public:
-        FdWriter(int fd, PollSet &pset, std::streambuf *req_body);
-        ~FdWriter(void);
+        int	write_error;
+        bool nothing_to_write;
+        std::string	missing_chunk;
+        std::string chunk;
 
-        PollSet&	pset;
-        bool		nothing_to_write;
-        void		on_nothing_to_write_callback(void);
-        void		on_write_success_callback(void);
+        virtual void		on_error_callback();
+        virtual void		on_nothing_to_write_callback();
+        virtual void		on_write_success_callback();
+        virtual ssize_t		_write(char *buf, size_t buflen);
+        void				_get_chunk(void);
+
+        FdWriter(PollSet &pser, int fd, std::streambuf *buf);
+
+private:
+        void			_onPOLLOUT(void);
+        void			_onPOLLERR(void);
 };
 
 #endif

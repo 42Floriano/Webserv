@@ -20,18 +20,16 @@
 
 PollSock::PollSock(PollSet &pset, int domain, int type, int protocol):
         Socket(domain, type, protocol),
-        _pset(pset),
+        PollCallback(pset, this->Socket::fd),
         _reserved_fd(-1)
 {
-
 };
 
 PollSock::PollSock(PollSet &pset, int fd, Address *addr):
         Socket(fd, addr),
-        _pset(pset),
+        PollCallback(pset, fd),
         _reserved_fd(-1)
 {
-
 };
 
 PollSock::~PollSock(void)
@@ -40,10 +38,10 @@ PollSock::~PollSock(void)
                        std::endl;
         try
         {
-                this->_pset.removeCallback(POLLIN, this);
-                this->_pset.removeCallback(POLLOUT, this);
-                this->_pset.removeCallback(POLLHUP, this);
-                this->_pset.removeCallback(POLLERR, this);
+                this->pset.removeCallback(POLLIN, this);
+                this->pset.removeCallback(POLLOUT, this);
+                this->pset.removeCallback(POLLHUP, this);
+                this->pset.removeCallback(POLLERR, this);
         }
         catch (const std::exception &err)
         {
